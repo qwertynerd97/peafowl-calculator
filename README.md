@@ -1,39 +1,9 @@
-# Voici demo
+# Peafowl Calculator
+Peafowl Calculator is a tool that helps determine the results of various peafowl breeding pairs, and helps to visualize what specific peafowl will look like
 
-[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://voila-dashboards.github.io/voici-demo)
+[View the Peafowl Calculator](https://qwertynerd97.github.io/peafowl-calculator/voici/render/PeacockUI.html?) - Note: The calculator may take a minute or so to load when you open the page, but should be fast once the page loads!
 
-[Voici](https://github.com/voila-dashboards/voici) deployed as a static site to GitHub Pages, for demo purposes.
+# Technical Specs
+The Peafowl Calculator is built on Jupyter Notebooks, for easy maintanability for non-technical folks
 
-It uses [jupyterlite-xeus](https://github.com/jupyterlite/xeus) to build the Emscripten environment, including the **xeus-python** kernel and run dependencies.
-
-## ✨ Try it in your browser ✨
-
-https://voila-dashboards.github.io/voici-demo
-
-## 💡 How to make your own deployment
-
-https://user-images.githubusercontent.com/21197331/223079815-0ea78df4-5173-4adc-a2e4-e10b9593a9f4.webm
-
-Then your site will be published under https://{USERNAME}.github.io/{DEMO_REPO_NAME}
-
-## 📦 How to install extra packages
-
-You can pre-install extra packages by adding them to the ``environment.yml`` file.
-
-For example, if you want to create a Voici deployment with NumPy and Matplotlib pre-installed, you would need to edit the ``environment.yml`` file as following:
-
-```yml
-name: voici
-channels:
-  - https://repo.mamba.pm/emscripten-forge
-  - conda-forge
-dependencies:
-  - xeus-python
-  - numpy
-  - matplotlib
-```
-
-Only ``no-arch`` packages from ``conda-forge`` and packages from ``emscripten-forge`` can be installed.
-- **How do I know if a package is ``no-arch`` on ``conda-forge``?** ``no-arch`` means that the package is OS-independent, usually pure-python packages are ``no-arch``. To check if your package is ``no-arch`` on ``conda-forge``, check if the "Platform" entry is "no-arch" in the https://beta.mamba.pm/channels/conda-forge?tab=packages page. If your package is not ``no-arch`` but is a pure Python package, then you should probably update the feedstock to turn your package into a ``no-arch`` one.
-![](https://raw.githubusercontent.com/jupyterlite/xeus-python-demo/main/noarch.png)
-- **How do I know if my package is on ``emscripten-forge``?** You can see the list of packages pubished on ``emscripten-forge`` [here](https://beta.mamba.pm/channels/emscripten-forge?tab=packages). In case your package is missing, or it's not up-to-date, feel free to open an issue or a PR on https://github.com/emscripten-forge/recipes.
+It is converted into a GitHub Pages site via Voici
