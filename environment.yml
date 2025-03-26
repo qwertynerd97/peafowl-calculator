@@ -4,8 +4,6 @@ channels:
   - conda-forge
 dependencies:
   - xeus-python
-  - pandas
-  - bqplot
   - ipywidgets
   - pillow
-  - nbformat
+  - import_ipynb
