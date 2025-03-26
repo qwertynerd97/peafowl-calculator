@@ -9,4 +9,5 @@ dependencies:
   - ipywidgets
   - pillow
   - nbformat
-  - import_ipynb
+  - pip: 
+    - import_ipynb
