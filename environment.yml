@@ -8,3 +8,4 @@ dependencies:
   - bqplot
   - ipywidgets
   - pillow
+  - nbformat
