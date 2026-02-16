@@ -30,6 +30,9 @@
         .offspring-card img { width: 150px; height: 150px; display: block; margin: 10px auto; }
         .genotype-toggle { font-size: 12px; margin-top: 5px; }
         .genotype-details { font-size: 11px; margin-top: 5px; padding: 5px; background: #fff; border: 1px solid #ddd; }
+        .imageWrapper { position: relative; height: 300px; width: 300px }
+        .childImageWrapper { position: relative; height: 150px; width: 150px }
+        .overlayImage { position: absolute; top: 0; left: 0; }
     </style>
 </head>
 <body>
@@ -81,7 +84,8 @@
         </div>
     </div>
 
-    <h2>Or edit the genotype of the birds directly:</h2>
+    <details>
+    <summary><h2>Or edit the genotype of the birds directly:</h2></summary>
     
     <div class="container">
         <div class="bird-section genotype-section">
@@ -94,17 +98,26 @@
             <div id="male-genotypes"></div>
         </div>
     </div>
+    </details>
 
     <div class="images">
-        <img id="female-image" src="content/Images/Female/Color/Unknown.png" alt="Female Peafowl">
-        <img id="male-image" src="content/Images/Male/Color/Unknown.png" alt="Male Peafowl">
+        <div>
+        <div class="imageWrapper">
+            <img class="overlayImage" id="female-color-img" src="content/Images/Female/Color/Unknown.png">
+            <img class="overlayImage" id="female-lineart" src="content/Images/Female/lineart.png">
+        </div>
+        </div>
+        <div class="imageWrapper">
+            <img class="overlayImage" id="male-color-img" src="content/Images/Male/Color/Unknown.png">
+            <img class="overlayImage" id="male-lineart" src="content/Images/Male/lineart.png">
+        </div>
     </div>
 
     <h2>Possible Offspring:</h2>
     <div id="offspring-results"></div>
 
     <!-- Load in Javascript to make the calculator work -->
-    <script src="genes.js"></script>onverters
+    <script src="genes.js"></script>
     <script src="converters.js"></script>
     <script src="children.js"></script>
     <script src="app.js"></script>

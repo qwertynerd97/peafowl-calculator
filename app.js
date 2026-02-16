@@ -29,8 +29,9 @@ function updateImage(sex, bird) {
     );
 
     const color = result.finalBirdPhenotype;
-    const imgId = sex === 'Female' ? 'female-image' : 'male-image';
+    const imgId = sex === 'Female' ? 'female-color-img' : 'male-color-img';
     const img = document.getElementById(imgId);
+    console.log(img);
 
     // Try to load the specific color image, fallback to Unknown
     const imagePath = `content/Images/${sex}/Color/${color}.png`;

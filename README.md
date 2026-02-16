@@ -10,7 +10,7 @@ Open `index.html` in your browser to use the standalone JavaScript version. This
 - Fast and responsive
 
 ### Jupyter Notebook Version
-[View the Peafowl Calculator](https://qwertynerd97.github.io/peafowl-calculator/voici/render/PeacockUI.html?) - Note: The calculator may take a minute or so to load when you open the page, but should be fast once the page loads!
+[View the Peafowl Calculator](https://qwertynerd97.github.io/peafowl-calculator/)
 
 # Technical Specs
 
