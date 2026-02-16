@@ -3,6 +3,22 @@ function generateOffspring() {
     const results = document.getElementById('offspring-results');
     results.innerHTML = '<p>Generating offspring...</p>';
 
+    const result = getPhenotypeFromBird(
+        femaleBird,
+        'Female',
+        'Wild Type',
+        colorGenes,
+        [{ name: 'Sex-Linked Color', allotypes: sexLinkedColorAllotypes, sexLinked: true }],
+        hetSexColors,
+        multiGeneColors
+    );
+
+    const femaleColor = result.finalBirdPhenotype;
+    if (femaleColor === "Charcoal") {
+        results.innerHTML = "<b>Charcoal hens are infertile and cannot produce offspring</b>";
+        return;
+    }
+
     // Generate all possible offspring genotypes
     const childrenGenotypes = generateChildGenotypes(maleBird, femaleBird);
     const children = generateChildrenPhenotypes(childrenGenotypes);

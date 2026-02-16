@@ -1,4 +1,4 @@
-// Define color genes
+// Single gene colors
 const colorGenes = [
     { notation: 'br', name: 'Bronze' },
     { notation: 'o', name: 'Opal' },
@@ -8,13 +8,13 @@ const colorGenes = [
     { notation: 'ch', name: 'Charcoal' },
     { notation: 'st', name: 'Steel' },
     { notation: 'um', name: 'Ultramarine' },
-    { notation: 'bu', name: 'Burnt Umber' }
+    // { notation: 'bu', name: 'Burnt Umber' }
 ];
 
 const sexLinkedColorAllotypes = [
     { notation: 'Z(c)', name: 'Cameo' },
     { notation: 'Z(pl)', name: 'American Purple' },
-    { notation: 'Z(va)', name: "Sonja's Violet" },
+    { notation: 'Z(va)', name: "Sonja's Violeta" },
     { notation: 'Z(ve)', name: 'European Violet' },
     { notation: 'Z(pl:c)', name: 'Peach' }
 ];
@@ -26,7 +26,8 @@ const multiGeneColors = [
     { name: 'Ivory', genesNeeded: ['Cameo', 'Opal'] },
     { name: 'Indigo', genesNeeded: ['American Purple', 'Bronze'] },
     { name: 'Hazel', genesNeeded: ['American Purple', 'Bronze'] },
-    { name: 'Cinnamon', genesNeeded: ['Cameo', 'Bronze'] }
+    { name: 'Cinnamon', genesNeeded: ['Cameo', 'Bronze'] },
+    { name: 'US Ivory', genesNeeded: ['Cameo', 'Opal'] }
 ];
 
 const sexAndAutosomalComboColors = [
