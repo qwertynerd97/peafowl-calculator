@@ -68,8 +68,8 @@ function updateGenesWithHetAllelePhenotype(bird, phenotype, hetPhenotypes) {
 }
 
 function savePhenotypeToBird(bird, phenotype, sex, simpleGenes, multiAllotypeGenes,
-                             sexLinkedAllotypes, multiGeneTraits,
-                             sexAndAutosomalCombos, hetTraits) {
+    sexLinkedAllotypes, multiGeneTraits,
+    sexAndAutosomalCombos, hetTraits) {
     // Update the simple genes
     let foundPhenotype = updateSimpleGenesWithPhenotype(bird, phenotype, simpleGenes);
 
@@ -159,7 +159,7 @@ function getHetPhenotypesFromBird(bird, phenotypes, hetPhenotypes) {
         if (
             bird.hasOwnProperty(hetPhenotype.geneName) &&
             (bird[hetPhenotype.geneName] === hetPhenotype.alleles[0] + '/' + hetPhenotype.alleles[1] ||
-             bird[hetPhenotype.geneName] === hetPhenotype.alleles[1] + '/' + hetPhenotype.alleles[0])
+                bird[hetPhenotype.geneName] === hetPhenotype.alleles[1] + '/' + hetPhenotype.alleles[0])
         ) {
             // Add the previous bird phenotype to the list, and change the current phenotype
             phenotypes.push(hetPhenotype.name);
@@ -180,7 +180,7 @@ function getPhenotypeFromBird(bird, sex, wildType, simpleGenes, multiAllotypeGen
     // All multi-allotype genes
     for (let gene of multiAllotypeGenes) {
         birdPhenotypes = getPhenotypesForGeneFromBird(bird, birdPhenotypes, sex,
-                                                      gene.name, gene.allotypes, gene.sexLinked);
+            gene.name, gene.allotypes, gene.sexLinked);
     }
 
     // And all het genes
@@ -211,9 +211,9 @@ function getPhenotypeFromBird(bird, sex, wildType, simpleGenes, multiAllotypeGen
     // observed before (ie if we have a record of it)
     let isUnknownPhenotype = false;
     if (birdPhenotypes.length === 1) {
-        isUnknownPhenotype = true;
+        isUnknownPhenotype = false;
     } else {
-        isUnknownPhenotype = multiGeneTraitExactMatch;
+        isUnknownPhenotype = !multiGeneTraitExactMatch;
     }
     return { finalBirdPhenotype, birdPhenotypes, isUnknownPhenotype };
 }

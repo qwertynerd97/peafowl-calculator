@@ -72,7 +72,7 @@ const hetWhite = [
 
 // Build color list for dropdowns
 function buildColorList(sex) {
-    const colors = new Set(['Wild Type']);
+    const colors = new Set(['Wild Type', 'Unknown']);
 
     colorGenes.forEach(gene => colors.add(gene.name));
     sexLinkedColorAllotypes.forEach(allotype => colors.add(allotype.name));

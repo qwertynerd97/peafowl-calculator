@@ -28,10 +28,9 @@ function updateImage(sex, bird) {
         multiGeneColors
     );
 
-    const color = result.finalBirdPhenotype;
+    const color = result.isUnknownPhenotype ? "Unknown" : result.finalBirdPhenotype;
     const imgId = sex === 'Female' ? 'female-color-img' : 'male-color-img';
     const img = document.getElementById(imgId);
-    console.log(img);
 
     // Try to load the specific color image, fallback to Unknown
     const imagePath = `content/Images/${sex}/Color/${color}.png`;
@@ -57,7 +56,7 @@ function updatePhenotypeDropdown(sex, bird, type) {
             hetSexColors,
             multiGeneColors
         );
-        select.value = result.finalBirdPhenotype;
+        select.value = result.isUnknownPhenotype ? "Unknown" : result.finalBirdPhenotype;
     } else if (type === 'pied') {
         const result = getPhenotypeFromBird(
             bird,
