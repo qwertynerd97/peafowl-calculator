@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peafowl Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 { text-align: center; }
+        .container { display: flex; gap: 20px; margin-bottom: 20px; }
+        .bird-section { flex: 1; border: 1px solid #ccc; padding: 15px; border-radius: 5px; }
+        .form-group { margin-bottom: 10px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        select { width: 100%; padding: 5px; }
+        .images { display: flex; gap: 20px; justify-content: center; }
+        .images img { width: 300px; height: 300px; }
+        h3 { margin-top: 0; text-align: center; }
+        .genotype-section { margin-top: 20px; }
+        .section-label { font-weight: bold; margin: 20px 0 10px 0; }
+        #offspring-results { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+        .offspring-card { border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #f9f9f9; }
+        .offspring-card h4 { margin: 0 0 10px 0; font-size: 14px; }
+        .offspring-card .probability { font-weight: bold; color: #0066cc; margin-bottom: 5px; }
+        .offspring-card .trait { font-size: 12px; margin: 3px 0; }
+        .offspring-card img { width: 150px; height: 150px; display: block; margin: 10px auto; }
+        .genotype-toggle { font-size: 12px; margin-top: 5px; }
+        .genotype-details { font-size: 11px; margin-top: 5px; padding: 5px; background: #fff; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Peafowl Creator</h1>
+    <p>Use this page to create peafowl and visualize the results of breeding pairs, and to see the possible genetic makeup of various peafowl</p>
+    
+    <h2>Enter physical traits for a breeding pair of peacocks. </h2>
+    <p>Note: Traits with multiple genotypes will be assumed to be homozygous ie breed true</p>
+    
+    <div class="container">
+        <div class="bird-section">
+            <h3>Female Peacock</h3>
+            <div class="form-group">
+                <label for="female-color">Color:</label>
+                <select id="female-color"></select>
+            </div>
+            <div class="form-group">
+                <label for="female-pattern">Pattern:</label>
+                <select id="female-pattern"></select>
+            </div>
+            <div class="form-group">
+                <label for="female-pied">Pied:</label>
+                <select id="female-pied"></select>
+            </div>
+            <div class="form-group">
+                <label for="female-eye">Leucistic Eye:</label>
+                <select id="female-eye"></select>
+            </div>
+        </div>
+        
+        <div class="bird-section">
+            <h3>Male Peacock</h3>
+            <div class="form-group">
+                <label for="male-color">Color:</label>
+                <select id="male-color"></select>
+            </div>
+            <div class="form-group">
+                <label for="male-pattern">Pattern:</label>
+                <select id="male-pattern"></select>
+            </div>
+            <div class="form-group">
+                <label for="male-pied">Pied:</label>
+                <select id="male-pied"></select>
+            </div>
+            <div class="form-group">
+                <label for="male-eye">Leucistic Eye:</label>
+                <select id="male-eye"></select>
+            </div>
+        </div>
+    </div>
+
+    <h2>Or edit the genotype of the birds directly:</h2>
+    
+    <div class="container">
+        <div class="bird-section genotype-section">
+            <h3>Female Peacock</h3>
+            <div id="female-genotypes"></div>
+        </div>
+        
+        <div class="bird-section genotype-section">
+            <h3>Male Peacock</h3>
+            <div id="male-genotypes"></div>
+        </div>
+    </div>
+
+    <div class="images">
+        <img id="female-image" src="content/Images/Female/Color/Unknown.png" alt="Female Peafowl">
+        <img id="male-image" src="content/Images/Male/Color/Unknown.png" alt="Male Peafowl">
+    </div>
+
+    <h2>Possible Offspring:</h2>
+    <div id="offspring-results"></div>
+
+    <!-- Load in Javascript to make the calculator work -->
+    <script src="genes.js"></script>onverters
+    <script src="converters.js"></script>
+    <script src="children.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
