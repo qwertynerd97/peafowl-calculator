@@ -26,6 +26,7 @@ const multiGeneColors = [
     { name: 'Ivory', genesNeeded: ['Cameo', 'Opal'] },
     { name: 'Indigo', genesNeeded: ['American Purple', 'Bronze'] },
     { name: 'Hazel', genesNeeded: ['American Purple', 'Bronze'] },
+    { name: 'Indigo/Hazel', genesNeeded: ['American Purple', 'Bronze'] },
     { name: 'Cinnamon', genesNeeded: ['Cameo', 'Bronze'] },
     { name: 'US Ivory', genesNeeded: ['Cameo', 'Opal'] }
 ];
@@ -35,7 +36,8 @@ const sexAndAutosomalComboColors = [
     { name: 'Mocha', autosomalGene: 'md', sexGene: 'Z(pl)' },
     { name: 'Ivory', autosomalGene: 'o', sexGene: 'Z(c)' },
     { name: 'Indigo', autosomalGene: 'br', sexGene: 'Z(pl)' },
-    { name: 'Hazel', autosomalGene: 'br', sexGene: 'Z(pl)' }
+    { name: 'Hazel', autosomalGene: 'br', sexGene: 'Z(pl)' },
+    { name: 'Indigo/Hazel', autosomalGene: 'br', sexGene: 'Z(pl)' }
 ];
 
 const hetSexColors = [

@@ -39,21 +39,8 @@ function generateOffspring() {
         const wrapper = document.createElement('div');
         wrapper.className = "childImageWrapper";
         card.appendChild(wrapper);
-        // Color
-        const img = document.createElement('img');
-        img.className = "overlayImage"
-        const imagePath = `content/Images/${child.phenotype.Sex}/Color/${child.phenotype.Color}.png`;
-        img.src = imagePath;
-        img.onerror = () => {
-            img.src = `content/Images/${child.phenotype.Sex}/Color/Unknown.png`;
-        };
-        wrapper.appendChild(img);
-        // Lineart
-        const lineart = document.createElement('img');
-        lineart.className = "overlayImage"
-        const lineartPath = `content/Images/${child.phenotype.Sex}/lineart.png`;
-        lineart.src = lineartPath;
-        wrapper.appendChild(lineart);
+
+        updateImage(child.phenotype.Sex, child.genotype, wrapper, true);
 
         // Add phenotype traits
         Object.keys(child.phenotype).forEach(trait => {

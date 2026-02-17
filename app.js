@@ -16,30 +16,6 @@ function populateDropdown(id, options) {
     });
 }
 
-// Update image based on phenotype
-function updateImage(sex, bird) {
-    const result = getPhenotypeFromBird(
-        bird,
-        sex,
-        'Wild Type',
-        colorGenes,
-        [{ name: 'Sex-Linked Color', allotypes: sexLinkedColorAllotypes, sexLinked: true }],
-        hetSexColors,
-        multiGeneColors
-    );
-
-    const color = result.isUnknownPhenotype ? "Unknown" : result.finalBirdPhenotype;
-    const imgId = sex === 'Female' ? 'female-color-img' : 'male-color-img';
-    const img = document.getElementById(imgId);
-
-    // Try to load the specific color image, fallback to Unknown
-    const imagePath = `content/Images/${sex}/Color/${color}.png`;
-    img.src = imagePath;
-    img.onerror = () => {
-        img.src = `content/Images/${sex}/Color/Unknown.png`;
-    };
-}
-
 // Update phenotype dropdown from bird genotype
 function updatePhenotypeDropdown(sex, bird, type) {
     const prefix = sex === 'Female' ? 'female' : 'male';
@@ -115,7 +91,7 @@ function createGenotypeWidgets(sex, bird) {
         select.addEventListener('change', (e) => {
             saveGenotypeToBird(bird, gene.name, e.target.value);
             updatePhenotypeDropdown(sex, bird, 'color');
-            updateImage(sex, bird);
+            updateImage(sex, bird, document.getElementById(sex + '-img'));
             generateOffspring();
         });
 
@@ -156,7 +132,7 @@ function createGenotypeWidgets(sex, bird) {
     sexSelect.addEventListener('change', (e) => {
         saveGenotypeToBird(bird, 'Sex-Linked Color', e.target.value);
         updatePhenotypeDropdown(sex, bird, 'color');
-        updateImage(sex, bird);
+        updateImage(sex, bird, document.getElementById(sex + '-img'));
         generateOffspring();
     });
 
@@ -301,7 +277,7 @@ function handlePhenotypeChange(sex, bird, phenotype, type) {
     }
 
     updateGenotypeWidgets(sex, bird);
-    updateImage(sex, bird);
+    updateImage(sex, bird, document.getElementById(sex + '-img'));
     generateOffspring();
 }
 
@@ -361,6 +337,12 @@ function init() {
     // Create genotype widgets
     createGenotypeWidgets('Female', femaleBird);
     createGenotypeWidgets('Male', maleBird);
+
+    updateImage('Female', femaleBird, document.getElementById('Female-img'));
+    updateImage('Male', maleBird, document.getElementById('Male-img'));
+
+    updatePhenotypeDropdown('Female', femaleBird, 'color');
+    updatePhenotypeDropdown('Male', maleBird, 'color');
 
     // Initalize Children
     generateOffspring()

@@ -70,6 +70,7 @@ function updateGenesWithHetAllelePhenotype(bird, phenotype, hetPhenotypes) {
 function savePhenotypeToBird(bird, phenotype, sex, simpleGenes, multiAllotypeGenes,
     sexLinkedAllotypes, multiGeneTraits,
     sexAndAutosomalCombos, hetTraits) {
+
     // Update the simple genes
     let foundPhenotype = updateSimpleGenesWithPhenotype(bird, phenotype, simpleGenes);
 
@@ -210,7 +211,7 @@ function getPhenotypeFromBird(bird, sex, wildType, simpleGenes, multiAllotypeGen
     // We also want to track whether or not this phenotype has ever been
     // observed before (ie if we have a record of it)
     let isUnknownPhenotype = false;
-    if (birdPhenotypes.length === 1) {
+    if (birdPhenotypes.length <= 1) {
         isUnknownPhenotype = false;
     } else {
         isUnknownPhenotype = !multiGeneTraitExactMatch;

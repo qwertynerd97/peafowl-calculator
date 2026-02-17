@@ -13,16 +13,16 @@
         }
         h1 { text-align: center; }
         .container { display: flex; gap: 20px; margin-bottom: 20px; }
-        .bird-section { flex: 1; border: 1px solid #ccc; padding: 15px; border-radius: 5px; }
+        .bird-section { flex: 1; border: 1px solid #ccc; padding: 15px; border-radius: 5px; width: 600px }
         .form-group { margin-bottom: 10px; }
         label { display: block; font-weight: bold; margin-bottom: 5px; }
         select { width: 100%; padding: 5px; }
         .images { display: flex; gap: 20px; justify-content: center; }
         .images img { width: 300px; height: 300px; }
         h3 { margin-top: 0; text-align: center; }
-        .genotype-section { margin-top: 20px; }
+        .genotype-section { margin-top: 20px;}
         .section-label { font-weight: bold; margin: 20px 0 10px 0; }
-        #offspring-results { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+        #offspring-results { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
         .offspring-card { border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #f9f9f9; }
         .offspring-card h4 { margin: 0 0 10px 0; font-size: 14px; }
         .offspring-card .probability { font-weight: bold; color: #0066cc; margin-bottom: 5px; }
@@ -103,14 +103,14 @@
 
     <div class="images">
         <div>
-        <div class="imageWrapper">
-            <img class="overlayImage" id="female-color-img" src="content/Images/Female/Color/Unknown.png">
-            <img class="overlayImage" id="female-lineart" src="content/Images/Female/lineart.png">
+        <div class="imageWrapper" id="Female-img">
+            <img class="overlayImage" id="Female-color-img" src="content/Images/Female/Color/Unknown.png">
+            <img class="overlayImage" id="Female-lineart" src="content/Images/Female/lineart.png">
         </div>
         </div>
-        <div class="imageWrapper">
-            <img class="overlayImage" id="male-color-img" src="content/Images/Male/Color/Unknown.png">
-            <img class="overlayImage" id="male-lineart" src="content/Images/Male/lineart.png">
+        <div class="imageWrapper" id="Male-img">
+            <img class="overlayImage" id="Male-color-img" src="content/Images/Male/Color/Unknown.png">
+            <img class="overlayImage" id="Male-lineart" src="content/Images/Male/lineart.png">
         </div>
     </div>
 
@@ -120,6 +120,7 @@
     <!-- Load in Javascript to make the calculator work -->
     <script src="genes.js"></script>
     <script src="converters.js"></script>
+    <script src="image.js"></script>
     <script src="children.js"></script>
     <script src="app.js"></script>
 </body>
