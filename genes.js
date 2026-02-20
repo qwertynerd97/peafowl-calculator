@@ -1,6 +1,6 @@
 // Single gene colors
 const colorGenes = [
-    { notation: 'br', name: 'Bronze' },
+    { notation: 'br', name: 'Buford Bronze' },
     { notation: 'o', name: 'Opal' },
     { notation: 'md', name: 'Midnight' },
     { notation: 'j', name: 'Jade' },
@@ -13,21 +13,21 @@ const colorGenes = [
 
 const sexLinkedColorAllotypes = [
     { notation: 'Z(c)', name: 'Cameo' },
-    { notation: 'Z(pl)', name: 'American Purple' },
+    { notation: 'Z(pl)', name: 'US Purple' },
     { notation: 'Z(va)', name: "Sonja's Violeta" },
     { notation: 'Z(ve)', name: 'European Violet' },
     { notation: 'Z(pl:c)', name: 'Peach' }
 ];
 
 const multiGeneColors = [
-    { name: 'Platinum', genesNeeded: ['Bronze', 'Opal'] },
-    { name: 'Taupe', genesNeeded: ['American Purple', 'Opal'] },
-    { name: 'Mocha', genesNeeded: ['American Purple', 'Midnight'] },
+    { name: 'Platinum', genesNeeded: ['Buford Bronze', 'Opal'] },
+    { name: 'Taupe', genesNeeded: ['US Purple', 'Opal'] },
+    { name: 'Mocha', genesNeeded: ['US Purple', 'Midnight'] },
     { name: 'Ivory', genesNeeded: ['Cameo', 'Opal'] },
-    { name: 'Indigo', genesNeeded: ['American Purple', 'Bronze'] },
-    { name: 'Hazel', genesNeeded: ['American Purple', 'Bronze'] },
-    { name: 'Indigo/Hazel', genesNeeded: ['American Purple', 'Bronze'] },
-    { name: 'Cinnamon', genesNeeded: ['Cameo', 'Bronze'] },
+    { name: 'Indigo', genesNeeded: ['US Purple', 'Buford Bronze'] },
+    { name: 'Hazel', genesNeeded: ['US Purple', 'Buford Bronze'] },
+    { name: 'Indigo/Hazel', genesNeeded: ['US Purple', 'Buford Bronze'] },
+    { name: 'Cinnamon', genesNeeded: ['Cameo', 'Buford Bronze'] },
     { name: 'US Ivory', genesNeeded: ['Cameo', 'Opal'] }
 ];
 
@@ -43,7 +43,7 @@ const sexAndAutosomalComboColors = [
 const hetSexColors = [
     { name: 'Midway between Violet and Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl)', 'Z(ve)'] },
     { name: 'Cameo', geneName: 'Sex-Linked Color', alleles: ['Z(c)', 'Z(pl:c)'] },
-    { name: 'American Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl)', 'Z(pl:c)'] }
+    { name: 'US Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl)', 'Z(pl:c)'] }
 ];
 
 const patternGenes = [
@@ -54,11 +54,10 @@ const piedAllotypes = [
     { notation: 'p', name: 'Dark Pied' },
     { notation: 'W', name: 'White' }
 ];
-
 const hetPied = [
     { name: 'Pied', geneName: 'Pied', alleles: ['p', 'W'] },
-    { name: 'Dark Pied', geneName: 'Pied', alleles: ['WT', 'W'] },
-    { name: 'Dark Pied', geneName: 'Pied', alleles: ['WT', 'p'] }
+    { name: 'Het White', geneName: 'Pied', alleles: ['WT', 'W'] },
+    { name: 'Het Pied', geneName: 'Pied', alleles: ['WT', 'p'] }
 ];
 
 const whiteEyeAllotypes = [
@@ -68,8 +67,8 @@ const whiteEyeAllotypes = [
 
 const hetWhite = [
     { name: 'Silver White Eye', geneName: 'White Eye', alleles: ['WE', 'sWE'] },
-    { name: 'Dark Pied', geneName: 'Pied', alleles: ['WT', 'W'] },
-    { name: 'Dark Pied', geneName: 'Pied', alleles: ['WT', 'p'] }
+    // { name: 'Dark Pied', geneName: 'Pied', alleles: ['WT', 'W'] },
+    // { name: 'Dark Pied', geneName: 'Pied', alleles: ['WT', 'p'] }
 ];
 
 // Build color list for dropdowns
