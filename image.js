@@ -29,7 +29,7 @@ function updateImage(sex, bird, container, isChild = false) {
         bird,
         sex,
         'Non-Leucistic Wild Type',
-        [],
+        piedGenes,
         [{ name: 'Pied', allotypes: piedAllotypes, sexLinked: false }],
         hetPied,
         []
@@ -92,6 +92,9 @@ function generateImg(sex, color, pattern, pied, container) {
     patternImg.onerror = () => {
         patternImg.src = ``;
         patternImg.style.display = 'none';
+        if (!pattern.includes("WT") && !pattern.includes("Wild Type")) {
+            colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
+        }
     };
 
     // Pied
@@ -104,11 +107,15 @@ function generateImg(sex, color, pattern, pied, container) {
     }
 
     const piedPath = `content/Images/${sex}/Pied/${pied}.png`;
+    console.log(piedPath);
     piedImg.style.display = 'revert';
     piedImg.src = piedPath;
     piedImg.onerror = () => {
         piedImg.src = ``;
         piedImg.style.display = 'none';
+        if (!pied.includes("WT") && !pied.includes("Wild Type")) {
+            colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
+        }
     };
 
     // Lineart

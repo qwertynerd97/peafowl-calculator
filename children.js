@@ -19,6 +19,31 @@ function generateOffspring() {
         return;
     }
 
+    const femalePied = getPhenotypeFromBird(
+        femaleBird,
+        'Female',
+        'Wild Type',
+        piedGenes,
+        [{ name: 'Pied', allotypes: piedAllotypes, sexLinked: false }],
+        [],
+        []
+    ).finalBirdPhenotype;
+
+    const malePied = getPhenotypeFromBird(
+        maleBird,
+        'Male',
+        'Wild Type',
+        piedGenes,
+        [{ name: 'Pied', allotypes: piedAllotypes, sexLinked: false }],
+        [],
+        []
+    ).finalBirdPhenotype;
+
+    if (femalePied === "Progressive Pied" || malePied === "Progressive Pied") {
+        results.innerHTML = "<b>Progressive pied is not a color, pattern, or leucistic mutation. The spread of white on the bird is the result of an genetic autoimmune disorder which causes health problems, including blindness and early death. These birds should not be bred.</b>";
+        return;
+    }
+
     // Generate all possible offspring genotypes
     const childrenGenotypes = generateChildGenotypes(maleBird, femaleBird);
     const children = generateChildrenPhenotypes(childrenGenotypes);

@@ -38,7 +38,7 @@ function updatePhenotypeDropdown(sex, bird, type) {
             bird,
             sex,
             'Non-Leucistic Wild Type',
-            [],
+            piedGenes,
             [{ name: 'Pied', allotypes: piedAllotypes, sexLinked: false }],
             hetPied,
             []
@@ -160,6 +160,10 @@ function createGenotypeWidgets(sex, bird) {
 
     piedSelect.addEventListener('change', (e) => {
         saveGenotypeToBird(bird, 'Pied', e.target.value);
+
+        piedDiv.appendChild(piedLabel);
+        piedDiv.appendChild(piedSelect);
+        container.appendChild(piedDiv);
         updatePhenotypeDropdown(sex, bird, 'pied');
         generateOffspring();
     });
@@ -167,6 +171,33 @@ function createGenotypeWidgets(sex, bird) {
     piedDiv.appendChild(piedLabel);
     piedDiv.appendChild(piedSelect);
     container.appendChild(piedDiv);
+
+    piedGenes.forEach(gene => {
+        const div = document.createElement('div');
+        div.className = 'form-group';
+        const label = document.createElement('label');
+        label.textContent = gene.name + ':';
+        const select = document.createElement('select');
+        select.id = `${sex.toLowerCase()}-gene-${gene.notation}`;
+
+        ['WT/WT', `WT/${gene.notation}`, `${gene.notation}/${gene.notation}`].forEach(opt => {
+            const option = document.createElement('option');
+            option.value = opt;
+            option.textContent = opt;
+            select.appendChild(option);
+        });
+
+        select.addEventListener('change', (e) => {
+            saveGenotypeToBird(bird, gene.name, e.target.value);
+            updatePhenotypeDropdown(sex, bird, 'color');
+            updateImage(sex, bird, document.getElementById(sex + '-img'));
+            generateOffspring();
+        });
+
+        div.appendChild(label);
+        div.appendChild(select);
+        container.appendChild(div);
+    });
 
     // White Eye
     const eyeDiv = document.createElement('div');
@@ -243,7 +274,7 @@ function handlePhenotypeChange(sex, bird, phenotype, type) {
             bird,
             phenotype,
             sex,
-            [],
+            piedGenes,
             [{ name: 'Pied', allotypes: piedAllotypes, sexLinked: false }],
             [],
             [],

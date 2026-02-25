@@ -50,6 +50,10 @@ const patternGenes = [
     { notation: 'bs', name: 'Blackshoulder' }
 ];
 
+const piedGenes = [
+    { notation: 'pp', name: 'Progressive Pied' },
+]
+
 const piedAllotypes = [
     { notation: 'p', name: 'Dark Pied' },
     { notation: 'W', name: 'White' }
@@ -95,6 +99,7 @@ function buildPatternList() {
 
 function buildPiedList() {
     const pied = new Set(['Non-Leucistic Wild Type']);
+    piedGenes.forEach(gene => pied.add(gene.name));
     piedAllotypes.forEach(allotype => pied.add(allotype.name));
     hetPied.forEach(phenotype => pied.add(phenotype.name));
     return Array.from(pied);
