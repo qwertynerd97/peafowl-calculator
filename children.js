@@ -288,7 +288,7 @@ function generateChildrenPhenotypes(childGenotypes) {
         // Get pattern phenotype
         let pattern = 'Barred Wing Wild Type';
         for (let gene of patternGenes) {
-            if (child.genotype[gene.name] && child.genotype[gene.name].includes(gene.notation)) {
+            if (child.genotype[gene.name] && child.genotype[gene.name].includes(gene.notation + "/" + gene.notation)) {
                 pattern = gene.name;
                 break;
             }
@@ -299,7 +299,7 @@ function generateChildrenPhenotypes(childGenotypes) {
             child.genotype,
             sex,
             'Non-Leucistic Wild Type',
-            [],
+            piedGenes,
             [{ name: 'Pied', allotypes: piedAllotypes, sexLinked: false }],
             hetPied,
             []

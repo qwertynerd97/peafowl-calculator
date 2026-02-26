@@ -35,8 +35,6 @@ const sexAndAutosomalComboColors = [
     { name: 'Taupe', autosomalGene: 'o', sexGene: 'Z(pl)' },
     { name: 'Mocha', autosomalGene: 'md', sexGene: 'Z(pl)' },
     { name: 'Ivory', autosomalGene: 'o', sexGene: 'Z(c)' },
-    { name: 'Indigo', autosomalGene: 'br', sexGene: 'Z(pl)' },
-    { name: 'Hazel', autosomalGene: 'br', sexGene: 'Z(pl)' },
     { name: 'Indigo/Hazel', autosomalGene: 'br', sexGene: 'Z(pl)' }
 ];
 

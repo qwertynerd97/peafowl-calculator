@@ -74,6 +74,7 @@ function generateImg(sex, color, pattern, pied, container) {
     const imagePath = `content/Images/${sex}/Color/${color}.png`;
     colorImg.src = imagePath;
     colorImg.onerror = () => {
+        colorImg.onerror = null;
         colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
     };
 
@@ -90,9 +91,11 @@ function generateImg(sex, color, pattern, pied, container) {
     patternImg.style.display = 'revert';
     patternImg.src = bsPath;
     patternImg.onerror = () => {
+        patternImg.onerror = null;
         patternImg.src = ``;
         patternImg.style.display = 'none';
         if (!pattern.includes("WT") && !pattern.includes("Wild Type")) {
+            console.log('reverting image to unknown');
             colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
         }
     };
@@ -106,11 +109,13 @@ function generateImg(sex, color, pattern, pied, container) {
         container.appendChild(piedImg);
     }
 
-    const piedPath = `content/Images/${sex}/Pied/${pied}.png`;
-    console.log(piedPath);
+    const piedPath = `content/Images/${sex}/Pied/${pied}.png`; if (!pied.includes("WT") && !pied.includes("Wild Type")) {
+        colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
+    }
     piedImg.style.display = 'revert';
     piedImg.src = piedPath;
     piedImg.onerror = () => {
+        piedImg.onerror = null;
         piedImg.src = ``;
         piedImg.style.display = 'none';
         if (!pied.includes("WT") && !pied.includes("Wild Type")) {
