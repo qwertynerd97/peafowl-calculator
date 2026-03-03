@@ -368,10 +368,16 @@ function init() {
     // Create genotype widgets
     createGenotypeWidgets('Female', femaleBird);
     createGenotypeWidgets('Male', maleBird);
-    //
-    // // Initalize Children
+
+    updateImage('Female', femaleBird, document.getElementById('Female-img'));
+    updateImage('Male', maleBird, document.getElementById('Male-img'));
+
+    updatePhenotypeDropdown('Female', femaleBird, 'color');
+    updatePhenotypeDropdown('Male', maleBird, 'color');
+
+    // Initalize Children
     generateOffspring()
-    //
+
     // Add event listeners for female
     document.getElementById('female-color').addEventListener('change', (e) => {
         handlePhenotypeChange('Female', femaleBird, e.target.value, 'color');

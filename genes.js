@@ -23,9 +23,6 @@ const multiGeneColors = [
     { name: 'Platinum', genesNeeded: ['Buford Bronze', 'Opal'] },
     { name: 'Taupe', genesNeeded: ['US Purple', 'Opal'] },
     { name: 'Mocha', genesNeeded: ['US Purple', 'Midnight'] },
-    { name: 'Ivory', genesNeeded: ['Cameo', 'Opal'] },
-    { name: 'Indigo', genesNeeded: ['US Purple', 'Buford Bronze'] },
-    { name: 'Hazel', genesNeeded: ['US Purple', 'Buford Bronze'] },
     { name: 'Indigo/Hazel', genesNeeded: ['US Purple', 'Buford Bronze'] },
     { name: 'Cinnamon', genesNeeded: ['Cameo', 'Buford Bronze'] },
     { name: 'US Ivory', genesNeeded: ['Cameo', 'Opal'] }
@@ -34,7 +31,6 @@ const multiGeneColors = [
 const sexAndAutosomalComboColors = [
     { name: 'Taupe', autosomalGene: 'o', sexGene: 'Z(pl)' },
     { name: 'Mocha', autosomalGene: 'md', sexGene: 'Z(pl)' },
-    { name: 'Ivory', autosomalGene: 'o', sexGene: 'Z(c)' },
     { name: 'Indigo/Hazel', autosomalGene: 'br', sexGene: 'Z(pl)' }
 ];
 
@@ -68,7 +64,7 @@ const whiteEyeAllotypes = [
 ];
 
 const hetWhite = [
-    { name: 'Silver White Eye', geneName: 'White Eye', alleles: ['WE', 'sWE'] },
+    { name: 'Silver White Eye', geneName: 'White Eye', alleles: ['WE', 'sWE'] }//,
     // { name: 'Dark Pied', geneName: 'Pied', alleles: ['WT', 'W'] },
     // { name: 'Dark Pied', geneName: 'Pied', alleles: ['WT', 'p'] }
 ];
