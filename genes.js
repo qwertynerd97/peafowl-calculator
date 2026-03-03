@@ -65,9 +65,9 @@ const whiteEyeAllotypes = [
 ];
 
 const hetWhite = [
-    { name: 'Silver White Eye', geneName: 'White Eye', alleles: ['WE', 'sWE'] }//,
-    // { name: 'Dark Pied', geneName: 'Pied', alleles: ['WT', 'W'] },
-    // { name: 'Dark Pied', geneName: 'Pied', alleles: ['WT', 'p'] }
+    { name: 'Silver White Eye', geneName: 'Leucistic Eye', alleles: ['WE', 'sWE'] },
+    { name: 'Het Silver White Eye', geneName: 'Leucistic Eye', alleles: ['WT', 'sWE'] },
+    { name: 'Het White Eye', geneName: 'Leucistic Eye', alleles: ['WT', 'WE'] }
 ];
 
 // Build color list for dropdowns
@@ -101,7 +101,8 @@ function buildPiedList() {
 }
 
 function buildEyeList() {
-    const eyes = ['Non-Leucistic Wild Type'];
-    whiteEyeAllotypes.forEach(allotype => eyes.push(allotype.name));
-    return eyes;
+    const eyes = new Set(['Non-Leucistic Wild Type']);
+    whiteEyeAllotypes.forEach(allotype => eyes.add(allotype.name));
+    hetWhite.forEach(phenotype => eyes.add(phenotype.name));
+    return Array.from(eyes);
 }

@@ -35,6 +35,16 @@ function updateImage(sex, bird, container, isChild = false) {
         []
     );
 
+    const eyeResult = getPhenotypeFromBird(
+        bird,
+        sex,
+        'Non-Leucistic Wild Type',
+        [],
+        [{ name: 'Leucistic Eye', allotypes: whiteEyeAllotypes, sexLinked: false }],
+        hetWhite,
+        []
+    );
+
     // Indigo and Hazel are different random presentations of the same genes
     // We should display parents based on the value in the selector
     if (!isChild && ['Indigo', 'Hazel', 'Indigo/Hazel'].includes(color.finalBirdPhenotype)) {
@@ -48,8 +58,8 @@ function updateImage(sex, bird, container, isChild = false) {
         const secondBird = document.createElement('div');
         secondBird.style.left = isChild ? '150px' : '300px';
         secondBird.className = container.className;
-        generateImg(sex, 'Indigo', pattern, piedResult.finalBirdPhenotype, container);
-        generateImg(sex, 'Hazel', pattern, piedResult.finalBirdPhenotype, secondBird);
+        generateImg(sex, 'Indigo', pattern, piedResult.finalBirdPhenotype, eyeResult.finalBirdPhenotype, container);
+        generateImg(sex, 'Hazel', pattern, piedResult.finalBirdPhenotype, eyeResult.finalBirdPhenotype, secondBird);
         container.appendChild(secondBird);
         container.style.width = isChild ? '300px' : '600px';
     } else {
@@ -57,11 +67,11 @@ function updateImage(sex, bird, container, isChild = false) {
         if (secondBird) container.removeChild(secondBird);
         container.style.width = isChild ? '150px' : '300px';
 
-        generateImg(sex, color, pattern, piedResult.finalBirdPhenotype, container);
+        generateImg(sex, color, pattern, piedResult.finalBirdPhenotype, eyeResult.finalBirdPhenotype, container);
     }
 }
 
-function generateImg(sex, color, pattern, pied, container) {
+function generateImg(sex, color, pattern, pied, eye, container) {
     // Color
     const prevColor = container.querySelector('#' + sex + '-color-img');
     const colorImg = prevColor ? prevColor : document.createElement('img');
@@ -109,9 +119,7 @@ function generateImg(sex, color, pattern, pied, container) {
         container.appendChild(piedImg);
     }
 
-    const piedPath = `content/Images/${sex}/Pied/${pied}.png`; if (!pied.includes("WT") && !pied.includes("Wild Type")) {
-        colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
-    }
+    const piedPath = `content/Images/${sex}/Pied/${pied}.png`;
     piedImg.style.display = 'revert';
     piedImg.src = piedPath;
     piedImg.onerror = () => {
@@ -119,6 +127,27 @@ function generateImg(sex, color, pattern, pied, container) {
         piedImg.src = ``;
         piedImg.style.display = 'none';
         if (!pied.includes("WT") && !pied.includes("Wild Type")) {
+            colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
+        }
+    };
+
+    // Eye
+    const prevEye = container.querySelector('#' + sex + '-eye-img');
+    const eyeImg = prevEye ? prevEye : document.createElement('img');
+    if (!prevEye) {
+        eyeImg.className = "overlayImage"
+        eyeImg.id = sex + '-eye-img';
+        container.appendChild(eyeImg);
+    }
+
+    const eyePath = `content/Images/${sex}/LeucisticEye/${eye}.png`;
+    eyeImg.style.display = 'revert';
+    eyeImg.src = eyePath;
+    eyeImg.onerror = () => {
+        eyeImg.onerror = null;
+        eyeImg.src = ``;
+        eyeImg.style.display = 'none';
+        if (!eye.includes("WT") && !eye.includes("Wild Type")) {
             colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
         }
     };

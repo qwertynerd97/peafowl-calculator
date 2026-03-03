@@ -282,6 +282,7 @@ function handlePhenotypeChange(sex, bird, phenotype, type) {
             hetPied
         );
     } else if (type === 'eye') {
+        console.log("changing eye");
         savePhenotypeToBird(
             bird,
             phenotype,
