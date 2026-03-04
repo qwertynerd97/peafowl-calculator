@@ -1,4 +1,6 @@
 // Single gene colors
+const colorUnknowns = ["Australian Fawn", "Cream Bronze", "EU Ivory", "Holla Metallic", "Onyx", "Raw Umber"];
+
 const colorGenes = [
     { notation: 'br', name: 'Buford Bronze' },
     { notation: 'o', name: 'Opal' },
@@ -45,6 +47,8 @@ const hetSexColors = [
     { name: 'US Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl)', 'Z(pl:c)'] }
 ];
 
+const patternUnknowns = ["Brown Wing"];
+
 const patternGenes = [
     { notation: 'bs', name: 'Blackshoulder' }
 ];
@@ -77,6 +81,7 @@ const hetWhite = [
 // Build color list for dropdowns
 function buildColorList(sex) {
     const colors = new Set(['Wild Type', 'Unknown']);
+    colorUnknowns.forEach(colors.add, colors);
 
     colorGenes.forEach(gene => colors.add(gene.name));
     sexLinkedColorAllotypes.forEach(allotype => colors.add(allotype.name));
@@ -91,9 +96,10 @@ function buildColorList(sex) {
 }
 
 function buildPatternList() {
-    const patterns = ['Barred Wing Wild Type'];
-    patternGenes.forEach(gene => patterns.push(gene.name));
-    return patterns;
+    const patterns = new Set(['Barred Wing Wild Type']);
+    patternUnknowns.forEach(patterns.add, patterns);
+    patternGenes.forEach(gene => patterns.add(gene.name));
+    return Array.from(patterns);
 }
 
 function buildPiedList() {

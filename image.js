@@ -2,7 +2,7 @@
 function updateImage(sex, bird, container, isChild = false) {
     let color = document.querySelector('#' + sex.toLowerCase() + '-color').value;
     const patternResult = document.querySelector('#' + sex.toLowerCase() + '-pattern').value;
-    const pattern = patternResult === "Blackshoulder" ? "BS" : "WT";
+    const pattern = patternResult === "Blackshoulder" ? "BS" : patternResult;
     const piedResult = document.querySelector('#' + sex.toLowerCase() + '-pied').value;
     const eyeResult = document.querySelector('#' + sex.toLowerCase() + '-eye').value;
 

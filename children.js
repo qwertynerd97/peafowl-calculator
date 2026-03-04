@@ -3,44 +3,27 @@ function generateOffspring() {
     const results = document.getElementById('offspring-results');
     results.innerHTML = '<p>Generating offspring...</p>';
 
-    const result = getPhenotypeFromBird(
-        femaleBird,
-        'Female',
-        'Wild Type',
-        colorGenes,
-        [{ name: 'Sex-Linked Color', allotypes: sexLinkedColorAllotypes, sexLinked: true }],
-        hetSexColors,
-        multiGeneColors
-    );
-
-    const femaleColor = result.finalBirdPhenotype;
+    const femaleColor = document.querySelector('#female-color').value;
+    const maleColor = document.querySelector('#male-color').value;
     if (femaleColor === "Charcoal") {
         results.innerHTML = "<b>Charcoal hens are infertile and cannot produce offspring</b>";
         return;
     }
 
-    const femalePied = getPhenotypeFromBird(
-        femaleBird,
-        'Female',
-        'Wild Type',
-        piedGenes,
-        [{ name: 'Pied', allotypes: piedAllotypes, sexLinked: false }],
-        [],
-        []
-    ).finalBirdPhenotype;
-
-    const malePied = getPhenotypeFromBird(
-        maleBird,
-        'Male',
-        'Wild Type',
-        piedGenes,
-        [{ name: 'Pied', allotypes: piedAllotypes, sexLinked: false }],
-        [],
-        []
-    ).finalBirdPhenotype;
-
+    const femalePied = document.querySelector('#female-pied').value;
+    const malePied = document.querySelector('#male-pied').value;
     if (femalePied === "Progressive Pied" || malePied === "Progressive Pied") {
         results.innerHTML = "<b>Progressive pied is not a color, pattern, or leucistic mutation. The spread of white on the bird is the result of an genetic autoimmune disorder which causes health problems, including blindness and early death. These birds should not be bred.</b>";
+        return;
+    }
+
+    const femalePattern = document.querySelector('#female-pattern').value;
+    const malePattern = document.querySelector('#male-pattern').value;
+
+    if (colorUnknowns.includes(femaleColor) || colorUnknowns.includes(maleColor) ||
+        patternUnknowns.includes(femalePattern) || patternUnknowns.includes(malePattern)
+    ) {
+        results.innerHTML = '<b>Sorry, the genetics for this mutation have not been submitted to us. For more information, visit the <a href="https://www.longfeatherlane.com/calculator-qa.html">question and answer page for the calculator</a></b>';
         return;
     }
 
