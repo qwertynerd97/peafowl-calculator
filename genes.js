@@ -8,6 +8,8 @@ const colorGenes = [
     { notation: 'ch', name: 'Charcoal' },
     { notation: 'st', name: 'Steel' },
     { notation: 'um', name: 'Ultramarine' },
+    { notation: 'mc', name: 'Mocha' },
+    { notation: 'N', name: 'Black' },
     // { notation: 'bu', name: 'Burnt Umber' }
 ];
 
@@ -22,7 +24,8 @@ const sexLinkedColorAllotypes = [
 const multiGeneColors = [
     { name: 'Platinum', genesNeeded: ['Buford Bronze', 'Opal'] },
     { name: 'Taupe', genesNeeded: ['US Purple', 'Opal'] },
-    { name: 'Mocha', genesNeeded: ['US Purple', 'Midnight'] },
+    { name: 'Amethyst', genesNeeded: ["Sonja's Violeta", 'Opal'] },
+    { name: 'Rosewood', genesNeeded: ['US Purple', 'Mocha'] },
     { name: 'Indigo/Hazel', genesNeeded: ['US Purple', 'Buford Bronze'] },
     { name: 'Cinnamon', genesNeeded: ['Cameo', 'Buford Bronze'] },
     { name: 'Cinnamon', genesNeeded: ['Peach', 'Buford Bronze'] },
@@ -31,7 +34,8 @@ const multiGeneColors = [
 
 const sexAndAutosomalComboColors = [
     { name: 'Taupe', autosomalGene: 'o', sexGene: 'Z(pl)' },
-    { name: 'Mocha', autosomalGene: 'md', sexGene: 'Z(pl)' },
+    { name: 'Amethyst', autosomalGene: 'o', sexGene: 'Z(va)' },
+    { name: 'Rosewood', autosomalGene: 'mc', sexGene: 'Z(pl)' },
     { name: 'Indigo/Hazel', autosomalGene: 'br', sexGene: 'Z(pl)' }
 ];
 
