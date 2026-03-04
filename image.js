@@ -1,10 +1,10 @@
 // Update image based on phenotype
 function updateImage(sex, bird, container, isChild = false) {
-    let color = document.querySelector('#' + sex.toLowerCase() + '-color').value;
-    const patternResult = document.querySelector('#' + sex.toLowerCase() + '-pattern').value;
+    let color = isChild ? bird.Color : document.querySelector('#' + sex.toLowerCase() + '-color').value;
+    const patternResult = isChild ? bird.Pattern : document.querySelector('#' + sex.toLowerCase() + '-pattern').value;
     const pattern = patternResult === "Blackshoulder" ? "BS" : patternResult;
-    const piedResult = document.querySelector('#' + sex.toLowerCase() + '-pied').value;
-    const eyeResult = document.querySelector('#' + sex.toLowerCase() + '-eye').value;
+    const piedResult = isChild ? bird.Pied : document.querySelector('#' + sex.toLowerCase() + '-pied').value;
+    const eyeResult = isChild ? bird['Leucistic Eye'] : document.querySelector('#' + sex.toLowerCase() + '-eye').value;
 
     if (color === 'Indigo/Hazel') {
         const secondBird = document.createElement('div');

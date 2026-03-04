@@ -48,7 +48,7 @@ function generateOffspring() {
         wrapper.className = "childImageWrapper";
         card.appendChild(wrapper);
 
-        updateImage(child.phenotype.Sex, child.genotype, wrapper, true);
+        updateImage(child.phenotype.Sex, child.phenotype, wrapper, true);
 
         // Add phenotype traits
         Object.keys(child.phenotype).forEach(trait => {
