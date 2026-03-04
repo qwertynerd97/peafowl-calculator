@@ -1,65 +1,17 @@
 // Update image based on phenotype
 function updateImage(sex, bird, container, isChild = false) {
-    // Get bird color
-    const colorResult = getPhenotypeFromBird(
-        bird,
-        sex,
-        'Wild Type',
-        colorGenes,
-        [{ name: 'Sex-Linked Color', allotypes: sexLinkedColorAllotypes, sexLinked: true }],
-        hetSexColors,
-        multiGeneColors
-    );
-
-    let color = colorResult.isUnknownPhenotype ? "Unknown" : colorResult.finalBirdPhenotype;
-
-    const patternResult = getPhenotypeFromBird(
-        bird,
-        sex,
-        'Wild Type',
-        patternGenes,
-        [],
-        [],
-        []
-    );
-
-    const pattern = patternResult.finalBirdPhenotype === "Blackshoulder" ? "BS" : "WT";
-
-    const piedResult = getPhenotypeFromBird(
-        bird,
-        sex,
-        'Non-Leucistic Wild Type',
-        piedGenes,
-        [{ name: 'Pied', allotypes: piedAllotypes, sexLinked: false }],
-        hetPied,
-        []
-    );
-
-    const eyeResult = getPhenotypeFromBird(
-        bird,
-        sex,
-        'Non-Leucistic Wild Type',
-        [],
-        [{ name: 'Leucistic Eye', allotypes: whiteEyeAllotypes, sexLinked: false }],
-        hetWhite,
-        []
-    );
-
-    // Indigo and Hazel are different random presentations of the same genes
-    // We should display parents based on the value in the selector
-    if (!isChild && ['Indigo', 'Hazel', 'Indigo/Hazel'].includes(color.finalBirdPhenotype)) {
-        const prefix = sex === 'Female' ? 'female' : 'male';
-        const selectId = `${prefix}-color`;
-        const select = document.getElementById(selectId);
-        color = select.value;
-    }
+    let color = document.querySelector('#' + sex.toLowerCase() + '-color').value;
+    const patternResult = document.querySelector('#' + sex.toLowerCase() + '-pattern').value;
+    const pattern = patternResult === "Blackshoulder" ? "BS" : "WT";
+    const piedResult = document.querySelector('#' + sex.toLowerCase() + '-pied').value;
+    const eyeResult = document.querySelector('#' + sex.toLowerCase() + '-eye').value;
 
     if (color === 'Indigo/Hazel') {
         const secondBird = document.createElement('div');
         secondBird.style.left = isChild ? '150px' : '300px';
         secondBird.className = container.className;
-        generateImg(sex, 'Indigo', pattern, piedResult.finalBirdPhenotype, eyeResult.finalBirdPhenotype, container);
-        generateImg(sex, 'Hazel', pattern, piedResult.finalBirdPhenotype, eyeResult.finalBirdPhenotype, secondBird);
+        generateImg(sex, 'Indigo', pattern, piedResult, eyeResult, container);
+        generateImg(sex, 'Hazel', pattern, piedResult, eyeResult, secondBird);
         container.appendChild(secondBird);
         container.style.width = isChild ? '300px' : '600px';
     } else {
@@ -67,7 +19,7 @@ function updateImage(sex, bird, container, isChild = false) {
         if (secondBird) container.removeChild(secondBird);
         container.style.width = isChild ? '150px' : '300px';
 
-        generateImg(sex, color, pattern, piedResult.finalBirdPhenotype, eyeResult.finalBirdPhenotype, container);
+        generateImg(sex, color, pattern, piedResult, eyeResult, container);
     }
 }
 

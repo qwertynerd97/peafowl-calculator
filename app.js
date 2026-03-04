@@ -370,11 +370,11 @@ function init() {
     createGenotypeWidgets('Female', femaleBird);
     createGenotypeWidgets('Male', maleBird);
 
-    updateImage('Female', femaleBird, document.getElementById('Female-img'));
-    updateImage('Male', maleBird, document.getElementById('Male-img'));
-
     updatePhenotypeDropdown('Female', femaleBird, 'color');
     updatePhenotypeDropdown('Male', maleBird, 'color');
+
+    updateImage('Female', femaleBird, document.getElementById('Female-img'));
+    updateImage('Male', maleBird, document.getElementById('Male-img'));
 
     // Initalize Children
     generateOffspring()
