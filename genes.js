@@ -36,7 +36,7 @@ const sexAndAutosomalComboColors = [
 ];
 
 const hetSexColors = [
-    { name: 'Midway between Violet and Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl)', 'Z(ve)'] },
+    { name: 'Het EV Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl)', 'Z(ve)'] },
     { name: 'Cameo', geneName: 'Sex-Linked Color', alleles: ['Z(c)', 'Z(pl:c)'] },
     { name: 'US Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl)', 'Z(pl:c)'] }
 ];
