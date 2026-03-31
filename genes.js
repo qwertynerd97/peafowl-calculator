@@ -1,5 +1,5 @@
 // Single gene colors
-const colorUnknowns = ["Australian Fawn", "Cream Bronze", "EU Ivory", "Holla Metallic", "Onyx", "Raw Umber"];
+const colorUnknowns = ["Cream Bronze", "EU Ivory", "Holla Metallic", "Onyx", "Raw Umber"];
 
 const colorGenes = [
     { notation: 'br', name: 'Buford Bronze' },
@@ -20,7 +20,8 @@ const sexLinkedColorAllotypes = [
     { notation: 'Z(pl)', name: 'US Purple' },
     { notation: 'Z(va)', name: "Sonja's Violeta" },
     { notation: 'Z(ve)', name: 'European Violet' },
-    { notation: 'Z(pl:c)', name: 'Peach' }
+    { notation: 'Z(pl:c)', name: 'Peach' },
+    { notation: 'Z(f)', name: 'Australian Fawn' }
 ];
 
 const multiGeneColors = [
