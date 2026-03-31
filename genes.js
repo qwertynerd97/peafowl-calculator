@@ -29,7 +29,6 @@ const multiGeneColors = [
     { name: 'Amethyst', genesNeeded: ["Sonja's Violeta", 'Opal'] },
     { name: 'Rosewood', genesNeeded: ['US Purple', 'Mocha'] },
     { name: 'Indigo/Hazel', genesNeeded: ['US Purple', 'Buford Bronze'] },
-    { name: 'Cinnamon', genesNeeded: ['Cameo', 'Buford Bronze'] },
     { name: 'Cinnamon', genesNeeded: ['Peach', 'Buford Bronze'] },
     { name: 'US Ivory', genesNeeded: ['Cameo', 'Opal'] }
 ];
