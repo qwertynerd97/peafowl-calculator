@@ -1,5 +1,5 @@
 // Single gene colors
-const colorUnknowns = ["Australian Fawn", "Cream Bronze", "EU Ivory", "Holla Metallic", "Onyx", "Raw Umber"];
+const colorUnknowns = ["Cream Bronze", "EU Ivory", "Holla Metallic", "Onyx", "Raw Umber"];
 
 const colorGenes = [
     { notation: 'br', name: 'Buford Bronze' },
@@ -12,7 +12,7 @@ const colorGenes = [
     { notation: 'um', name: 'Ultramarine' },
     { notation: 'mc', name: 'Mocha' },
     { notation: 'N', name: 'Black' },
-    // { notation: 'bu', name: 'Burnt Umber' }
+    // { notation: 'ru', name: 'Raw Umber' }
 ];
 
 const sexLinkedColorAllotypes = [
@@ -20,7 +20,8 @@ const sexLinkedColorAllotypes = [
     { notation: 'Z(pl)', name: 'US Purple' },
     { notation: 'Z(va)', name: "Sonja's Violeta" },
     { notation: 'Z(ve)', name: 'European Violet' },
-    { notation: 'Z(pl:c)', name: 'Peach' }
+    { notation: 'Z(pl:c)', name: 'Peach' },
+    { notation: 'Z(f)', name: 'Australian Fawn' }
 ];
 
 const multiGeneColors = [
@@ -29,7 +30,6 @@ const multiGeneColors = [
     { name: 'Amethyst', genesNeeded: ["Sonja's Violeta", 'Opal'] },
     { name: 'Rosewood', genesNeeded: ['US Purple', 'Mocha'] },
     { name: 'Indigo/Hazel', genesNeeded: ['US Purple', 'Buford Bronze'] },
-    { name: 'Cinnamon', genesNeeded: ['Cameo', 'Buford Bronze'] },
     { name: 'Cinnamon', genesNeeded: ['Peach', 'Buford Bronze'] },
     { name: 'US Ivory', genesNeeded: ['Cameo', 'Opal'] }
 ];
