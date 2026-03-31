@@ -1,6 +1,6 @@
 // Bird state
-let femaleBird = {};
-let maleBird = {};
+const femaleBird = {};
+const maleBird = {};
 
 // Populate dropdowns
 function populateDropdown(id, options) {
@@ -156,46 +156,17 @@ function createGenotypeWidgets(sex, bird) {
         }
     }
 
+    console.log("mapping");
     piedSelect.addEventListener('change', (e) => {
         saveGenotypeToBird(bird, 'Pied', e.target.value);
-
-        piedDiv.appendChild(piedLabel);
-        piedDiv.appendChild(piedSelect);
-        container.appendChild(piedDiv);
         updatePhenotypeDropdown(sex, bird, 'pied');
+        updateImage(sex, bird, document.getElementById(sex + '-img'));
         generateOffspring();
     });
 
     piedDiv.appendChild(piedLabel);
     piedDiv.appendChild(piedSelect);
     container.appendChild(piedDiv);
-
-    piedGenes.forEach(gene => {
-        const div = document.createElement('div');
-        div.className = 'form-group';
-        const label = document.createElement('label');
-        label.textContent = gene.name + ':';
-        const select = document.createElement('select');
-        select.id = `${sex.toLowerCase()}-gene-${gene.notation}`;
-
-        ['WT/WT', `WT/${gene.notation}`, `${gene.notation}/${gene.notation}`].forEach(opt => {
-            const option = document.createElement('option');
-            option.value = opt;
-            option.textContent = opt;
-            select.appendChild(option);
-        });
-
-        select.addEventListener('change', (e) => {
-            saveGenotypeToBird(bird, gene.name, e.target.value);
-            updatePhenotypeDropdown(sex, bird, 'color');
-            updateImage(sex, bird, document.getElementById(sex + '-img'));
-            generateOffspring();
-        });
-
-        div.appendChild(label);
-        div.appendChild(select);
-        container.appendChild(div);
-    });
 
     // White Eye
     const eyeDiv = document.createElement('div');
@@ -218,6 +189,7 @@ function createGenotypeWidgets(sex, bird) {
     eyeSelect.addEventListener('change', (e) => {
         saveGenotypeToBird(bird, 'Leucistic Eye', e.target.value);
         updatePhenotypeDropdown(sex, bird, 'eye');
+        updateImage(sex, bird, document.getElementById(sex + '-img'));
         generateOffspring();
     });
 
@@ -244,6 +216,7 @@ function createGenotypeWidgets(sex, bird) {
         select.addEventListener('change', (e) => {
             saveGenotypeToBird(bird, gene.name, e.target.value);
             updatePhenotypeDropdown(sex, bird, 'pattern');
+            updateImage(sex, bird, document.getElementById(sex + '-img'));
             generateOffspring();
         });
 
@@ -352,9 +325,13 @@ function updateGenotypeWidgets(sex, bird) {
 
 function resetToWildType(bird) {
     if (bird === 'Male') {
-        maleBird = {};
+        Object.keys(maleBird).forEach(key => {
+            delete maleBird[key];
+        });
     } else {
-        femaleBird = {};
+        Object.keys(maleBird).forEach(key => {
+            delete femaleBird[key];
+        });
     }
 
     document.getElementById(bird.toLowerCase() + '-color').value = "Wild Type";
@@ -362,19 +339,7 @@ function resetToWildType(bird) {
     document.getElementById(bird.toLowerCase() + '-pied').value = "Non-Leucistic Wild Type";
     document.getElementById(bird.toLowerCase() + '-eye').value = "Non-Leucistic Wild Type";
 
-    const container = document.getElementById(bird.toLowerCase() + '-genotypes');
-    Array.from(container.children).forEach(element => {
-        const select = element.getElementsByTagName('select')[0];
-        if (select.id.includes('sexlinked')) {
-            if (bird === 'Male') {
-                select.value = 'Z(WT)/Z(WT)';
-            } else {
-                select.value = 'Z(WT)/w';
-            }
-        } else {
-            select.value = "WT/WT";
-        }
-    })
+    updateGenotypeWidgets(bird, bird === 'Male' ? maleBird : femaleBird);
 }
 
 // Initialize the application
