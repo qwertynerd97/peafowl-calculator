@@ -12,7 +12,7 @@ const colorGenes = [
     { notation: 'um', name: 'Ultramarine' },
     { notation: 'mc', name: 'Mocha' },
     { notation: 'N', name: 'Black' },
-    // { notation: 'bu', name: 'Burnt Umber' }
+    // { notation: 'ru', name: 'Raw Umber' }
 ];
 
 const sexLinkedColorAllotypes = [
