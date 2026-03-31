@@ -138,6 +138,10 @@ h3 {
 
 .detail-edit { display: inline; }
 
+.reset {
+    margin-top: 20px;
+}
+
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
     body {sshfs -o uid=1001 -o gid=1001 -o allow_other elli@gold-dragon.lan:/home/elli ~/Mounts/gold-dragon

@@ -1,8 +1,6 @@
 // Bird state
-const femaleBird = {};
-const maleBird = {};
-
-
+let femaleBird = {};
+let maleBird = {};
 
 // Populate dropdowns
 function populateDropdown(id, options) {
@@ -352,6 +350,33 @@ function updateGenotypeWidgets(sex, bird) {
     });
 }
 
+function resetToWildType(bird) {
+    if (bird === 'Male') {
+        maleBird = {};
+    } else {
+        femaleBird = {};
+    }
+
+    document.getElementById(bird.toLowerCase() + '-color').value = "Wild Type";
+    document.getElementById(bird.toLowerCase() + '-pattern').value = "Barred Wing Wild Type";
+    document.getElementById(bird.toLowerCase() + '-pied').value = "Non-Leucistic Wild Type";
+    document.getElementById(bird.toLowerCase() + '-eye').value = "Non-Leucistic Wild Type";
+
+    const container = document.getElementById(bird.toLowerCase() + '-genotypes');
+    Array.from(container.children).forEach(element => {
+        const select = element.getElementsByTagName('select')[0];
+        if (select.id.includes('sexlinked')) {
+            if (bird === 'Male') {
+                select.value = 'Z(WT)/Z(WT)';
+            } else {
+                select.value = 'Z(WT)/w';
+            }
+        } else {
+            select.value = "WT/WT";
+        }
+    })
+}
+
 // Initialize the application
 function init() {
     // Populate female dropdowns
@@ -406,6 +431,23 @@ function init() {
     document.getElementById('male-eye').addEventListener('change', (e) => {
         handlePhenotypeChange('Male', maleBird, e.target.value, 'eye');
     });
+
+    // Add event listeners to reset genotypes
+    document.getElementById('male-reset').addEventListener('click', (e) => {
+        resetToWildType('Male');
+        updatePhenotypeDropdown('Male', maleBird, 'color');
+        updateImage('Male', maleBird, document.getElementById('Male-img'));
+    });
+    document.getElementById('male-gene-reset').addEventListener('click', (e) => {
+        resetToWildType('Male');
+        updatePhenotypeDropdown('Male', maleBird, 'color');
+        updateImage('Male', maleBird, document.getElementById('Male-img'));
+    });
+    document.getElementById('female-gene-reset').addEventListener('click', (e) => {
+        resetToWildType('Female');
+        updatePhenotypeDropdown('Female', femaleBird, 'color');
+        updateImage('Female', femaleBird, document.getElementById('Female-img'));
+    })
 }
 
 // Run initialization when DOM is ready
