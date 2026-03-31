@@ -130,7 +130,7 @@ function savePhenotypeToBird(bird, phenotype, sex, simpleGenes, multiAllotypeGen
 function getSimplePhenotypesFromBird(bird, phenotypes, simpleGenes) {
     for (let gene of simpleGenes) {
         if (bird.hasOwnProperty(gene.name)) {
-            if (bird[gene.name] === gene.notation + '/' + gene.notation) {
+            if ((gene.dominant && bird[gene.name].includes(gene.notation)) || bird[gene.name] === gene.notation + '/' + gene.notation) {
                 // Add the previous bird phenotype to the list, and change the current phenotype
                 phenotypes.push(gene.name);
             }

@@ -13,6 +13,8 @@ const colorGenes = [
     { notation: 'mc', name: 'Mocha' },
     { notation: 'N', name: 'Black' },
     // { notation: 'ru', name: 'Raw Umber' }
+    // Sample of dominant gene - only enabled for single-allele genes for now
+    // { notation: 'O', name: 'Onyx', dominant: true },
 ];
 
 const sexLinkedColorAllotypes = [
