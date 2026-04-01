@@ -156,7 +156,6 @@ function createGenotypeWidgets(sex, bird) {
         }
     }
 
-    console.log("mapping");
     piedSelect.addEventListener('change', (e) => {
         saveGenotypeToBird(bird, 'Pied', e.target.value);
         updatePhenotypeDropdown(sex, bird, 'pied');
@@ -253,7 +252,6 @@ function handlePhenotypeChange(sex, bird, phenotype, type) {
             hetPied
         );
     } else if (type === 'eye') {
-        console.log("changing eye");
         savePhenotypeToBird(
             bird,
             phenotype,
@@ -377,9 +375,20 @@ function init() {
         handlePhenotypeChange('Female', femaleBird, e.target.value, 'pattern');
     });
     document.getElementById('female-pied').addEventListener('change', (e) => {
-        handlePhenotypeChange('Female', femaleBird, e.target.value, 'pied');
+        if (e.target.value == 'Silver Pied') {
+            document.getElementById('female-eye').value = 'Silver White Eye';
+            handlePhenotypeChange('Female', femaleBird, 'Silver White Eye', 'eye');
+            handlePhenotypeChange('Female', femaleBird, 'Pied', 'pied');
+        } else {
+            handlePhenotypeChange('Female', femaleBird, e.target.value, 'pied');
+        }
     });
     document.getElementById('female-eye').addEventListener('change', (e) => {
+        const piedElement = document.getElementById('female-pied');
+        if (e.target.value !== 'Silver White Eye' && piedElement.value === 'Silver Pied') {
+            piedElement.value = 'Pied';
+            handlePhenotypeChange('Female', femaleBird, 'Pied', 'pied');
+        }
         handlePhenotypeChange('Female', femaleBird, e.target.value, 'eye');
     });
 
@@ -391,9 +400,20 @@ function init() {
         handlePhenotypeChange('Male', maleBird, e.target.value, 'pattern');
     });
     document.getElementById('male-pied').addEventListener('change', (e) => {
-        handlePhenotypeChange('Male', maleBird, e.target.value, 'pied');
+        if (e.target.value == 'Silver Pied') {
+            document.getElementById('male-eye').value = 'Silver White Eye';
+            handlePhenotypeChange('Male', maleBird, 'Silver White Eye', 'eye');
+            handlePhenotypeChange('Male', maleBird, 'Pied', 'pied');
+        } else {
+            handlePhenotypeChange('Male', maleBird, e.target.value, 'pied');
+        }
     });
     document.getElementById('male-eye').addEventListener('change', (e) => {
+        const piedElement = document.getElementById('male-pied');
+        if (e.target.value !== 'Silver White Eye' && piedElement.value === 'Silver Pied') {
+            piedElement.value = 'Pied';
+            handlePhenotypeChange('Male', maleBird, 'Pied', 'pied');
+        }
         handlePhenotypeChange('Male', maleBird, e.target.value, 'eye');
     });
 

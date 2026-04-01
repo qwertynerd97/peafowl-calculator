@@ -105,7 +105,8 @@ function buildPatternList() {
 }
 
 function buildPiedList() {
-    const pied = new Set(['Non-Leucistic Wild Type']);
+    // Note: Silver Pied is actually Pied + Silver White Eye
+    const pied = new Set(['Non-Leucistic Wild Type', 'Silver Pied']);
     piedGenes.forEach(gene => pied.add(gene.name));
     piedAllotypes.forEach(allotype => pied.add(allotype.name));
     hetPied.forEach(phenotype => pied.add(phenotype.name));

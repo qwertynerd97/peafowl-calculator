@@ -3,8 +3,26 @@ function updateImage(sex, bird, container, isChild = false) {
     let color = isChild ? bird.Color : document.querySelector('#' + sex.toLowerCase() + '-color').value;
     const patternResult = isChild ? bird.Pattern : document.querySelector('#' + sex.toLowerCase() + '-pattern').value;
     const pattern = patternResult === "Blackshoulder" ? "BS" : patternResult;
-    const piedResult = isChild ? bird.Pied : document.querySelector('#' + sex.toLowerCase() + '-pied').value;
+    let piedResult = isChild ? bird.Pied : document.querySelector('#' + sex.toLowerCase() + '-pied').value;
     const eyeResult = isChild ? bird['Leucistic Eye'] : document.querySelector('#' + sex.toLowerCase() + '-eye').value;
+
+    if (piedResult === "Silver Pied") {
+        const silverNote = container.querySelector('#silver');
+        if (!silverNote) {
+            const silverNote = document.createElement('div');
+            silverNote.id = "silver";
+            silverNote.innerHTML = "<b>Note:</b> Silver Pied is a combination of Pied and Silver White Eye."
+            container.appendChild(silverNote);
+        }
+    } else {
+        const silverNote = container.querySelector('#silver');
+        if (silverNote) container.removeChild(silverNote);
+    }
+
+    // Pied + Silver White Eye results in a unique coloration that is stored in the Pied folder
+    if (piedResult === "Pied" && eyeResult === "Silver White Eye") {
+        piedResult = "Silver Pied";
+    }
 
     if (color === 'Indigo/Hazel') {
         const secondBird = document.createElement('div');
@@ -57,7 +75,6 @@ function generateImg(sex, color, pattern, pied, eye, container) {
         patternImg.src = ``;
         patternImg.style.display = 'none';
         if (!pattern.includes("WT") && !pattern.includes("Wild Type")) {
-            console.log('reverting image to unknown');
             colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
         }
     };
