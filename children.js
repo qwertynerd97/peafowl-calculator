@@ -10,6 +10,11 @@ function generateOffspring() {
         return;
     }
 
+    if (femaleColor === "Australian Fawn" || maleColor === "Australian Fawn") {
+        results.innerHTML = "<b>This mutation currently appears linked to health concerns like blindness, a shortened lifespan, and pigment cell death resulting in spreading white. These birds should not be bred.</b>";
+        return;
+    }
+
     const femalePied = document.querySelector('#female-pied').value;
     const malePied = document.querySelector('#male-pied').value;
     if (femalePied === "Progressive Pied" || malePied === "Progressive Pied") {
