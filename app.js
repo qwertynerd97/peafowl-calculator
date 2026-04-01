@@ -327,7 +327,7 @@ function resetToWildType(bird) {
             delete maleBird[key];
         });
     } else {
-        Object.keys(maleBird).forEach(key => {
+        Object.keys(femaleBird).forEach(key => {
             delete femaleBird[key];
         });
     }
@@ -418,21 +418,30 @@ function init() {
     });
 
     // Add event listeners to reset genotypes
+    document.getElementById('female-reset').addEventListener('click', (e) => {
+        resetToWildType('Female');
+        updatePhenotypeDropdown('Female', femaleBird, 'color');
+        updateImage('Female', femaleBird, document.getElementById('Female-img'));
+        generateOffspring();
+    });
     document.getElementById('male-reset').addEventListener('click', (e) => {
         resetToWildType('Male');
         updatePhenotypeDropdown('Male', maleBird, 'color');
         updateImage('Male', maleBird, document.getElementById('Male-img'));
-    });
-    document.getElementById('male-gene-reset').addEventListener('click', (e) => {
-        resetToWildType('Male');
-        updatePhenotypeDropdown('Male', maleBird, 'color');
-        updateImage('Male', maleBird, document.getElementById('Male-img'));
+        generateOffspring();
     });
     document.getElementById('female-gene-reset').addEventListener('click', (e) => {
         resetToWildType('Female');
         updatePhenotypeDropdown('Female', femaleBird, 'color');
         updateImage('Female', femaleBird, document.getElementById('Female-img'));
+        generateOffspring();
     })
+    document.getElementById('male-gene-reset').addEventListener('click', (e) => {
+        resetToWildType('Male');
+        updatePhenotypeDropdown('Male', maleBird, 'color');
+        updateImage('Male', maleBird, document.getElementById('Male-img'));
+        generateOffspring();
+    });
 }
 
 // Run initialization when DOM is ready
