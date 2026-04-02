@@ -11,8 +11,26 @@
     <h1>Peafowl Genetics Calculator</h1>
     <p>This calculator may be used to predict and visualize the offspring of any peafowl breeding pair, and to create and visualize the possible genetic makeup of any peafowl.</p>
     <p>For more genetics information, please visit the main <a href="https://www.longfeatherlane.com/peafowl-genetics.html">Peafowl Genetics page</a>. For more information about this calculator (including answers to common questions), please visit the <a href="https://www.longfeatherlane.com/calculator.html">Calculator Home page</a>.</p>
-    
-    <h2>Enter phenotype (visual traits) for a breeding pair of peafowl. </h2>
+
+
+    <details>
+    <summary><h2 class="detail-edit">Click here to edit the genotype of the birds directly</h2></summary>
+
+    <div class="container">
+        <div class="bird-section genotype-section">
+            <h3>Female Peafowl (Peahen)</h3>
+            <div id="female-genotypes"></div>
+            <button id="female-gene-reset" class="reset">Reset All Genotypes to Wild Type</button>
+        </div>
+
+        <div class="bird-section genotype-section">
+            <h3>Male Peafowl (Peacock)</h3>
+            <div id="male-genotypes"></div>
+            <button id="male-gene-reset" class="reset">Reset All Genotypes to Wild Type</button>
+        </div>
+    </div>
+    </details>
+    <h2>Or enter phenotype (visual traits) for a breeding pair of peafowl. </h2>
     <p>Note: Phenotypes resulting from multiple mutations are assumed homozygous, and will breed true. Enter hets/splits in the genotype section.</p>
     
     <div class="container">
@@ -58,24 +76,6 @@
             <button id="male-reset" class="reset">Reset All Phenotypes to Wild Type</button>
         </div>
     </div>
-
-    <details>
-    <summary><h2 class="detail-edit">Or click here to edit the genotype of the birds directly</h2></summary>
-    
-    <div class="container">
-        <div class="bird-section genotype-section">
-            <h3>Female Peafowl (Peahen)</h3>
-            <div id="female-genotypes"></div>
-            <button id="female-gene-reset" class="reset">Reset All Genotypes to Wild Type</button>
-        </div>
-        
-        <div class="bird-section genotype-section">
-            <h3>Male Peafowl (Peacock)</h3>
-            <div id="male-genotypes"></div>
-            <button id="male-gene-reset" class="reset">Reset All Genotypes to Wild Type</button>
-        </div>
-    </div>
-    </details>
 
     <div class="images">
         <div>
