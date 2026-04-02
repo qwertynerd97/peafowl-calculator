@@ -66,7 +66,9 @@ function generateOffspring() {
         // Add genotype toggle
         const toggle = document.createElement('details');
         const summary = document.createElement('summary');
-        summary.textContent = 'Show Genotype';
+        const summaryBold = document.createElement('b');
+        summaryBold.textContent = 'Show Genotype';
+        summary.appendChild(summaryBold);
         toggle.appendChild(summary);
         toggle.className = 'genotype-toggle';
         card.appendChild(toggle);
