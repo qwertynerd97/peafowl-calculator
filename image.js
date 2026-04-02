@@ -150,4 +150,8 @@ function generateImg(sex, color, pattern, pied, eye, container) {
     lineart.className = "overlayImage"
     const lineartPath = `content/Images/${sex}/lineart.png`;
     lineart.src = lineartPath;
+
+    if (color === "Unknown") {
+        onError([patternImg, piedImg, eyeImg]);
+    }
 }
