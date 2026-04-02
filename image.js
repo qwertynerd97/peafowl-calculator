@@ -39,10 +39,30 @@ function updateImage(sex, bird, container, isChild = false) {
     }
 }
 
+function onError(images) {
+    images.forEach(image => {
+        image.onerror = null;
+        image.src = ``;
+        image.style.display = 'none';
+    })
+}
+
 function generateImg(sex, color, pattern, pied, eye, container) {
-    // Color
+    // Get all non-lineart images first - they will all have to be updated if there is a loading error
     const prevColor = container.querySelector('#' + sex + '-color-img');
     const colorImg = prevColor ? prevColor : document.createElement('img');
+
+    const prevPattern = container.querySelector('#' + sex + '-pattern-img');
+    const patternImg = prevPattern ? prevPattern : document.createElement('img');
+
+    const prevPied = container.querySelector('#' + sex + '-pied-img');
+    const piedImg = prevPied ? prevPied : document.createElement('img');
+
+    const prevEye = container.querySelector('#' + sex + '-eye-img');
+    const eyeImg = prevEye ? prevEye : document.createElement('img');
+
+
+    // Color
     if (!prevColor) {
         colorImg.className = "overlayImage"
         colorImg.id = sex + '-color-img';
@@ -53,12 +73,11 @@ function generateImg(sex, color, pattern, pied, eye, container) {
     colorImg.src = imagePath;
     colorImg.onerror = () => {
         colorImg.onerror = null;
+        onError([patternImg, piedImg, eyeImg]);
         colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
     };
 
     // Pattern
-    const prevPattern = container.querySelector('#' + sex + '-pattern-img');
-    const patternImg = prevPattern ? prevPattern : document.createElement('img');
     if (!prevPattern) {
         patternImg.className = "overlayImage"
         patternImg.id = sex + '-pattern-img';
@@ -73,13 +92,12 @@ function generateImg(sex, color, pattern, pied, eye, container) {
         patternImg.src = ``;
         patternImg.style.display = 'none';
         if (!pattern.includes("WT") && !pattern.includes("Wild Type")) {
+            onError([patternImg, piedImg, eyeImg]);
             colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
         }
     };
 
     // Pied
-    const prevPied = container.querySelector('#' + sex + '-pied-img');
-    const piedImg = prevPied ? prevPied : document.createElement('img');
     if (!prevPied) {
         piedImg.className = "overlayImage"
         piedImg.id = sex + '-pied-img';
@@ -94,13 +112,12 @@ function generateImg(sex, color, pattern, pied, eye, container) {
         piedImg.src = ``;
         piedImg.style.display = 'none';
         if (!pied.includes("WT") && !pied.includes("Wild Type")) {
+            onError([patternImg, piedImg, eyeImg]);
             colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
         }
     };
 
     // Eye
-    const prevEye = container.querySelector('#' + sex + '-eye-img');
-    const eyeImg = prevEye ? prevEye : document.createElement('img');
     if (!prevEye) {
         eyeImg.className = "overlayImage"
         eyeImg.id = sex + '-eye-img';
@@ -115,6 +132,7 @@ function generateImg(sex, color, pattern, pied, eye, container) {
         eyeImg.src = ``;
         eyeImg.style.display = 'none';
         if (!eye.includes("WT") && !eye.includes("Wild Type")) {
+            onError([patternImg, piedImg, eyeImg]);
             colorImg.src = `content/Images/${sex}/Color/Unknown.png`;
         }
     };
