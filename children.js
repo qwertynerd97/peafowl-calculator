@@ -15,6 +15,29 @@ function generateOffspring() {
         return;
     }
 
+    const femaleGeneColor = getPhenotypeFromBird(
+        femaleBird,
+        'Female',
+        'Wild Type',
+        colorGenes,
+        [{ name: 'Sex-Linked Color', allotypes: sexLinkedColorAllotypes, sexLinked: true }],
+        hetSexColors,
+        multiGeneColors
+    ).finalBirdPhenotype;
+    const maleGeneColor = getPhenotypeFromBird(
+        maleBird,
+        'Male',
+        'Wild Type',
+        colorGenes,
+        [{ name: 'Sex-Linked Color', allotypes: sexLinkedColorAllotypes, sexLinked: true }],
+        hetSexColors,
+        multiGeneColors
+    ).finalBirdPhenotype;
+    if ((femaleColor === "Unknown" && femaleGeneColor === "Wild Type") || (maleColor === "Unknown" && maleGeneColor === "Wild Type")) {
+        results.innerHTML = "<b>Unable to determine potential offspring for unknown genetics</b>";
+        return;
+    }
+
     const femalePied = document.querySelector('#female-pied').value;
     const malePied = document.querySelector('#male-pied').value;
     if (femalePied === "Progressive Pied" || malePied === "Progressive Pied") {
