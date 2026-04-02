@@ -7,16 +7,18 @@ function updateImage(sex, bird, container, isChild = false) {
     const eyeResult = isChild ? bird['Leucistic Eye'] : document.querySelector('#' + sex.toLowerCase() + '-eye').value;
 
     if (piedResult === "Silver Pied") {
-        const silverNote = container.querySelector('#silver');
+        const silverNote = container.parentElement.querySelector('#silver');
         if (!silverNote) {
             const silverNote = document.createElement('div');
             silverNote.id = "silver";
+            silverNote.style.position = "absolute";
+            silverNote.style.bottom = "-1em";
             silverNote.innerHTML = "<b>Note:</b> Silver Pied is a combination of Pied and Silver White Eye."
-            container.appendChild(silverNote);
+            container.parentElement.appendChild(silverNote);
         }
     } else {
-        const silverNote = container.querySelector('#silver');
-        if (silverNote) container.removeChild(silverNote);
+        const silverNote = container.parentElement.querySelector('#silver');
+        if (silverNote) container.parentElement.removeChild(silverNote);
     }
 
     // Pied + Silver White Eye results in a unique coloration that is stored in the Pied folder
@@ -141,7 +143,7 @@ function generateImg(sex, color, pattern, pied, eye, container) {
     const prevLine = container.querySelector('#' + sex + '-lineart');
     const lineart = prevLine ? prevLine : document.createElement('img');
     if (!prevLine) {
-        lineart.className = "overlayImage"
+        lineart.className = "overlayImage";
         lineart.id = sex + '-lineart';
         container.appendChild(lineart);
     }

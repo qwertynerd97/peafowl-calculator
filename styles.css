@@ -122,6 +122,10 @@ h3 {
     border: 1px solid #ddd; 
 }
 
+.multiWrapper {
+    position: relative;
+}
+
 .imageWrapper { 
     position: relative; 
     height: 300px; 
