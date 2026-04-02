@@ -49,9 +49,12 @@ function generateOffspring() {
 
         // Add image
         // Wrapper to hold transparent images
+        const outer = document.createElement('div');
+        outer.className = "image";
+        card.appendChild(outer);
         const wrapper = document.createElement('div');
-        wrapper.className = "childImageWrapper";
-        card.appendChild(wrapper);
+        wrapper.className = "imageWrapper";
+        outer.appendChild(wrapper);
 
         updateImage(child.phenotype.Sex, child.phenotype, wrapper, true);
 

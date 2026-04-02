@@ -26,16 +26,14 @@ function updateImage(sex, bird, container, isChild = false) {
 
     if (color === 'Indigo/Hazel') {
         const secondBird = document.createElement('div');
-        secondBird.style.left = isChild ? '150px' : '300px';
-        secondBird.className = container.className;
+        secondBird.className = 'second-bird imageWrapper';
         generateImg(sex, 'Indigo', pattern, piedResult, eyeResult, container);
         generateImg(sex, 'Hazel', pattern, piedResult, eyeResult, secondBird);
-        container.appendChild(secondBird);
-        container.style.width = isChild ? '300px' : '600px';
+        container.parentElement.appendChild(secondBird);
     } else {
-        const secondBird = container.querySelector('.' + container.className);
-        if (secondBird) container.removeChild(secondBird);
-        container.style.width = isChild ? '150px' : '300px';
+        console.log(container);
+        const secondBird = container.parentElement.querySelector('.second-bird');
+        if (secondBird) container.parentElement.removeChild(secondBird);
 
         generateImg(sex, color, pattern, piedResult, eyeResult, container);
     }

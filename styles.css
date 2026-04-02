@@ -68,11 +68,22 @@ h3 {
     gap: 15px; 
 }
 
+#offspring-results .imageWrapper {
+    height: 150px;
+    width: 150px;
+    background-color: revert;
+}
+
 .offspring-card { 
     border: 1px solid #ddd; 
     padding: 10px; 
     border-radius: 5px; 
     background: #f9f9f9; 
+}
+
+.offspring-card > .image {
+    display: flex;
+    justify-content: center;
 }
 
 .offspring-card h4 { 
@@ -120,18 +131,6 @@ h3 {
     border-radius: 5px;
 }
 
-.imageWrapper .imageWrapper {
-    position: absolute;
-    left: 300px;
-    top: 0;
-}
-
-.childImageWrapper { 
-    position: relative; 
-    height: 150px; 
-    width: 150px;
-}
-
 .overlayImage { 
     position: absolute; 
     top: 0; 
@@ -167,33 +166,19 @@ footer {
 }
 
 /* Mobile Responsive Styles */
-@media (max-width: 768px) {
-    body {sshfs -o uid=1001 -o gid=1001 -o allow_other elli@gold-dragon.lan:/home/elli ~/Mounts/gold-dragon
+@media (max-width: 600px) {
+    body {
         padding: 10px;
         max-width: 100%;
     }
 
     .container {
-        flex-direction: column;sshfs -o uid=1001 -o gid=1001 -o allow_other elli@gold-dragon.lan:/home/elli ~/Mounts/gold-dragon
+        flex-direction: column;
         gap: 15px;
     }
 
     .images {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .imageWrapper {
-        width: 300px;
-        height: 300px;
-        flex-shrink: 0;
-    }
-    
-    .images img {
-        width: 300px;
-        height: 300px;
+        grid-template-columns: 1fr;
     }
 
     .images > div {
@@ -201,16 +186,6 @@ footer {
         flex-direction: column;
         align-items: center;
         width: 100%;
-    }
-
-    .imageWrapper .imageWrapper {
-        position: relative !important;
-        left: 0 !important;
-        margin-top: 15px;
-    }
-
-    #offspring-results {
-        grid-template-columns: 1fr;
     }
 }
 
@@ -227,10 +202,8 @@ footer {
         font-size: 1.2em;
     }
 
-    .images img,
-    .imageWrapper {
-        width: 300px;
-        height: 300px;
+    .images {
+        grid-template-columns: 1fr;
     }
 
     .bird-section {
