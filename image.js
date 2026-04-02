@@ -25,13 +25,13 @@ function updateImage(sex, bird, container, isChild = false) {
     }
 
     if (color === 'Indigo/Hazel') {
-        const secondBird = document.createElement('div');
+        let secondBird = container.parentElement.querySelector('.second-bird');
+        if (!secondBird) secondBird = document.createElement('div');
         secondBird.className = 'second-bird imageWrapper';
         generateImg(sex, 'Indigo', pattern, piedResult, eyeResult, container);
         generateImg(sex, 'Hazel', pattern, piedResult, eyeResult, secondBird);
         container.parentElement.appendChild(secondBird);
     } else {
-        console.log(container);
         const secondBird = container.parentElement.querySelector('.second-bird');
         if (secondBird) container.parentElement.removeChild(secondBird);
 
@@ -82,7 +82,7 @@ function generateImg(sex, color, pattern, pied, eye, container) {
     const piedImg = prevPied ? prevPied : document.createElement('img');
     if (!prevPied) {
         piedImg.className = "overlayImage"
-        piedImg.id = sex + '-pattern-img';
+        piedImg.id = sex + '-pied-img';
         container.appendChild(piedImg);
     }
 
