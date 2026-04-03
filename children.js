@@ -11,7 +11,7 @@ function generateOffspring() {
     }
 
     if (femaleColor === "Australian Fawn" || maleColor === "Australian Fawn") {
-        results.innerHTML = "<b>This mutation currently appears linked to health concerns like blindness, a shortened lifespan, and pigment cell death resulting in spreading white. These birds should not be bred.</b>";
+        results.innerHTML = "<b>The calculator will not calculate for this mutation as it currently appears linked to health concerns including blindness and pigment cell death resulting in spreading white.</b>";
         return;
     }
 
