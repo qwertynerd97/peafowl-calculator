@@ -11,7 +11,7 @@ function generateOffspring() {
     }
 
     if (femaleColor === "Australian Fawn" || maleColor === "Australian Fawn") {
-        results.innerHTML = "<b>The calculator will not calculate for this mutation as it currently appears linked to health concerns including blindness and pigment cell death resulting in spreading white.</b>";
+        results.innerHTML = "<b>The calculator will not calculate for Fawn as it currently appears linked to health concerns including blindness and pigment cell death resulting in spreading white.</b>";
         return;
     }
 
@@ -41,7 +41,7 @@ function generateOffspring() {
     const femalePied = document.querySelector('#female-pied').value;
     const malePied = document.querySelector('#male-pied').value;
     if (femalePied === "Progressive Pied" || malePied === "Progressive Pied") {
-        results.innerHTML = "<b>Progressive pied is not a color, pattern, or leucistic mutation. The spread of white on the bird is the result of an genetic autoimmune disorder which causes health problems, including blindness and early death. These birds should not be bred.</b>";
+        results.innerHTML = "<b>The calculator will not calculate for progressive pied as the spread of white on the bird is the result of a genetic autoimmune disorder which causes health concerns, including blindness and early death.</b>";
         return;
     }
 
