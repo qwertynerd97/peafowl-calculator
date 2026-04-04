@@ -51,7 +51,7 @@ function generateOffspring() {
     if (colorUnknowns.includes(femaleColor) || colorUnknowns.includes(maleColor) ||
         patternUnknowns.includes(femalePattern) || patternUnknowns.includes(malePattern)
     ) {
-        results.innerHTML = '<b>Sorry, the genetics for this mutation have not been submitted to us. For more information, visit the <a href="https://www.longfeatherlane.com/calculator-qa.html">question and answer page for the calculator</a></b>';
+        results.innerHTML = '<b>Sorry, the genetics for this mutation have not been submitted to us. For more information, visit the <a href="https://www.longfeatherlane.com/calculator.html">question and answer page for the calculator</a></b>';
         return;
     }
 
