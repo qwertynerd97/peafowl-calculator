@@ -41,7 +41,7 @@ function generateOffspring() {
     const femalePied = document.querySelector('#female-pied').value;
     const malePied = document.querySelector('#male-pied').value;
     if (femalePied === "Progressive Pied" || malePied === "Progressive Pied") {
-        results.innerHTML = "<b>The calculator will not calculate for progressive pied as the spread of white on the bird is the result of a genetic autoimmune disorder which causes health concerns, including blindness and early death.</b>";
+        results.innerHTML = "<b>The calculator will not calculate for progressive pied, as it is caused by a genetic autoimmune disorder which results health concerns, including pigment cell death, blindness, and early death.</b>";
         return;
     }
 
