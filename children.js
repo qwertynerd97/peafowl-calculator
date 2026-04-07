@@ -337,7 +337,7 @@ function generateChildrenPhenotypes(childGenotypes) {
             probability: child.probability,
             phenotype: {
                 'Sex': sex,
-                'Color': colorResult.finalBirdPhenotype,
+                'Color': colorResult.isUnknownPhenotype ? "Unknown" : colorResult.finalBirdPhenotype,
                 'Pattern': pattern,
                 'Pied': piedResult.finalBirdPhenotype,
                 'Leucistic Eye': eyeResult.finalBirdPhenotype
