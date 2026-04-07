@@ -16,6 +16,17 @@ function updateImage(sex, bird, container, isChild = false) {
             silverNote.innerHTML = "<b>Note:</b> Silver Pied is a combination of Pied and Silver White Eye."
             container.parentElement.appendChild(silverNote);
         }
+    } else if (piedResult === "Pied" && eyeResult === "Silver White Eye") {
+        piedResult = "Silver Pied";
+        const silverNote = container.parentElement.querySelector('#silver');
+        if (!silverNote) {
+            const silverNote = document.createElement('div');
+            silverNote.id = "silver";
+            silverNote.style.position = "absolute";
+            silverNote.style.bottom = "-1em";
+            silverNote.innerHTML = "<b>Note:</b> Pied and Silver White Eye may also be called Silver Pied."
+            container.parentElement.appendChild(silverNote);
+        }
     } else {
         const silverNote = container.parentElement.querySelector('#silver');
         if (silverNote) container.parentElement.removeChild(silverNote);
@@ -23,7 +34,6 @@ function updateImage(sex, bird, container, isChild = false) {
 
     // Pied + Silver White Eye results in a unique coloration that is stored in the Pied folder
     if (piedResult === "Pied" && eyeResult === "Silver White Eye") {
-        piedResult = "Silver Pied";
     }
 
     if (color === 'Indigo/Hazel') {
