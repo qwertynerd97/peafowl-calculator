@@ -6,7 +6,7 @@ function updateImage(sex, bird, container, isChild = false) {
     let piedResult = isChild ? bird.Pied : document.querySelector('#' + sex.toLowerCase() + '-pied').value;
     const eyeResult = isChild ? bird['Leucistic Eye'] : document.querySelector('#' + sex.toLowerCase() + '-eye').value;
 
-    if (piedResult === "Silver Pied") {
+    if (piedResult === "Silver Pied" && !isChild) {
         const silverNote = container.parentElement.querySelector('#silver');
         if (!silverNote) {
             const silverNote = document.createElement('div');
@@ -16,7 +16,7 @@ function updateImage(sex, bird, container, isChild = false) {
             silverNote.innerHTML = "<b>Note:</b> Silver Pied is a combination of Pied and Silver White Eye."
             container.parentElement.appendChild(silverNote);
         }
-    } else if (piedResult === "Pied" && eyeResult === "Silver White Eye") {
+    } else if (piedResult === "Pied" && eyeResult === "Silver White Eye" && !isChild) {
         piedResult = "Silver Pied";
         const silverNote = container.parentElement.querySelector('#silver');
         if (!silverNote) {
