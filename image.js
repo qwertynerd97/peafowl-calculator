@@ -13,6 +13,7 @@ function updateImage(sex, bird, container, isChild = false) {
             silverNote.id = "silver";
             silverNote.style.position = "absolute";
             silverNote.style.bottom = "-1em";
+            silverNote.style.fontSize = "0.8em";
             silverNote.innerHTML = "<b>Note:</b> Silver Pied is a combination of Pied and Silver White Eye."
             container.parentElement.appendChild(silverNote);
         }
@@ -24,7 +25,19 @@ function updateImage(sex, bird, container, isChild = false) {
             silverNote.id = "silver";
             silverNote.style.position = "absolute";
             silverNote.style.bottom = "-1em";
+            silverNote.style.fontSize = "0.8em";
             silverNote.innerHTML = "<b>Note:</b> Pied and Silver White Eye may also be called Silver Pied."
+            container.parentElement.appendChild(silverNote);
+        }
+    } else if (color === "Ultramarine" && !isChild) {
+        const silverNote = container.parentElement.querySelector('#silver');
+        if (!silverNote) {
+            const silverNote = document.createElement('div');
+            silverNote.id = "silver";
+            silverNote.style.position = "absolute";
+            silverNote.style.bottom = "-1em";
+            silverNote.style.fontSize = "0.8em";
+            silverNote.innerHTML = "<b>Note:</b> Ultramarine is assumed to be autosomal recessive, but breeding has produced odd results."
             container.parentElement.appendChild(silverNote);
         }
     } else {
