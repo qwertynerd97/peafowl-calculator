@@ -83,6 +83,7 @@ function addNextLayer(ctx, img, src, sex, nextLayer, lineartLayer) {
             nextLayer();
         }
         img.onerror = function() {
+            console.log("Error loading " + src);
             ctx.clearRect(0, 0, 700, 700);
             const unknown = new Image();
             unknown.src = `content/Images/${sex}/Color/Unknown.png`;
@@ -95,7 +96,7 @@ function addNextLayer(ctx, img, src, sex, nextLayer, lineartLayer) {
     }
 }
 
-function combineLayersIntoSingle(sex, color, pattern, pied, eye) {
+function combineLayersIntoSingle(sex, color, pattern, pied, eye, afterDraw = undefined) {
     var downloader = document.getElementById(sex + "-downloader");
 
     var c = document.getElementById(sex + "-canvas");
@@ -105,6 +106,10 @@ function combineLayersIntoSingle(sex, color, pattern, pied, eye) {
         const href = c.toDataURL("image/png");
         downloader.href = href;
         downloader.download = `${sex}-${color}-${pattern}-${pied}-${eye}.png`
+        if (afterDraw) {
+            console.log("Calling afterDraw")
+            afterDraw(ctx);
+        }
     });
 
     const lineartLayer = prevLayer;

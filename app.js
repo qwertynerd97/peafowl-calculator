@@ -340,8 +340,52 @@ function resetToWildType(bird) {
     updateGenotypeWidgets(bird, bird === 'Male' ? maleBird : femaleBird);
 }
 
-function downloadAll(sex) {
 
+
+function clickAndClear(ctx, sex) {
+    var downloader = document.getElementById(sex + "-downloader");
+    downloader.click();
+    ctx.clearRect(0, 0, 700, 700);
+}
+
+function createNextBird(bird, nextBird = undefined) {
+    const { sex, color, pattern, pied, eye } = bird;
+    console.log(bird);
+    return function() {
+        combineLayersIntoSingle(sex, color, pattern, pied, eye, function(ctx) {
+            clickAndClear(ctx, sex);
+            if (nextBird) nextBird();
+        });
+    }
+}
+
+function downloadAll(sex) {
+    let nextBird = undefined;
+
+    const birdList = buildColorList(sex).flatMap((color => {
+        return buildPatternList().flatMap((pattern) => {
+            return buildPiedList().flatMap((pied) => {
+                return buildEyeList().map((eye) => {
+                    return {
+                        sex,
+                        color,
+                        pattern,
+                        pied,
+                        eye
+                    }
+
+                })
+            });
+        });
+    }));
+
+    let idex = 0
+    for (bird of birdList) {
+        nextBird = createNextBird(bird, nextBird);
+        // idex++;
+        // if (idex > 5) break;
+    }
+    nextBird();
 }
 
 // Initialize the application
@@ -446,6 +490,15 @@ function init() {
         updateImage('Male', maleBird, document.getElementById('Male-img'));
         generateOffspring();
     });
+
+    document.getElementById('Female-download-all').addEventListener('click', () => downloadAll('Female'));
+    document.getElementById('Male-download-all').addEventListener('click', () => downloadAll('Male'));
+
+    if (window.location.search.includes('download=show')) {
+        Array.from(document.getElementsByClassName('download')).forEach(element => element.style.display = 'inline-block');
+    }
+
+
 }
 
 // Run initialization when DOM is ready
