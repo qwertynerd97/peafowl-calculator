@@ -7,6 +7,10 @@ body {
 
 h1 { text-align: center; }
 
+.utility {
+    display: none;
+}
+
 .container { 
     display: flex; 
     gap: 20px; 

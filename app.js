@@ -340,6 +340,10 @@ function resetToWildType(bird) {
     updateGenotypeWidgets(bird, bird === 'Male' ? maleBird : femaleBird);
 }
 
+function downloadAll(sex) {
+
+}
+
 // Initialize the application
 function init() {
     // Populate female dropdowns

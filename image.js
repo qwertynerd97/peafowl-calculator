@@ -19,7 +19,7 @@ function updateImage(sex, bird, container, isChild = false) {
         }
     } else if (piedResult === "Pied" && eyeResult === "Silver White Eye") {
         piedResult = "Silver Pied";
-        if(!isChild) {
+        if (!isChild) {
             const silverNote = container.parentElement.querySelector('#silver');
             if (!silverNote) {
                 const silverNote = document.createElement('div');
@@ -72,6 +72,58 @@ function onError(images) {
         image.src = ``;
         image.style.display = 'none';
     })
+}
+
+function addNextLayer(ctx, img, src, sex, nextLayer, lineartLayer) {
+    return () => {
+        img.src = src;
+        img.onload = function() {
+            ctx.imageSmoothingEnabled = false;
+            ctx.drawImage(img, 0, 0);
+            nextLayer();
+        }
+        img.onerror = function() {
+            ctx.clearRect(0, 0, 700, 700);
+            const unknown = new Image();
+            unknown.src = `content/Images/${sex}/Color/Unknown.png`;
+            unknown.onload = () => {
+                ctx.imageSmoothingEnabled = false;
+                ctx.drawImage(unknown, 0, 0);
+                lineartLayer();
+            }
+        }
+    }
+}
+
+function combineLayersIntoSingle(sex, color, pattern, pied, eye) {
+    var downloader = document.getElementById(sex + "-downloader");
+
+    var c = document.getElementById(sex + "-canvas");
+    var ctx = c.getContext("2d");
+
+    let prevLayer = addNextLayer(ctx, new Image(), `content/Images/${sex}/lineart.png`, sex, () => {
+        const href = c.toDataURL("image/png");
+        downloader.href = href;
+        downloader.download = `${sex}-${color}-${pattern}-${pied}-${eye}.png`
+    });
+
+    const lineartLayer = prevLayer;
+
+    if (!eye.includes("WT") && !eye.includes("Wild Type")) {
+        prevLayer = addNextLayer(ctx, new Image(), `content/Images/${sex}/LeucisticEye/${eye}.png`, sex, prevLayer, lineartLayer);
+    }
+
+    if (!pied.includes("WT") && !pied.includes("Wild Type")) {
+        prevLayer = addNextLayer(ctx, new Image(), `content/Images/${sex}/Pied/${pied}.png`, sex, prevLayer, lineartLayer);
+    }
+
+    if (!pattern.includes("WT") && !pattern.includes("Wild Type")) {
+        prevLayer = addNextLayer(ctx, new Image(), `content/Images/${sex}/Pattern/${color} ${pattern}.png`, sex, prevLayer, lineartLayer);
+    }
+
+    const colorFunct = addNextLayer(ctx, new Image(), `content/Images/${sex}/Color/${color}.png`, sex, prevLayer, lineartLayer);
+
+    colorFunct();
 }
 
 function generateImg(sex, color, pattern, pied, eye, container) {
@@ -179,4 +231,6 @@ function generateImg(sex, color, pattern, pied, eye, container) {
     if (color === "Unknown") {
         onError([patternImg, piedImg, eyeImg]);
     }
+
+    combineLayersIntoSingle(sex, color, pattern, pied, eye);
 }
