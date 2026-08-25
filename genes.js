@@ -38,13 +38,14 @@ const multiGeneColors = [
 
 const sexAndAutosomalComboColors = [
     { name: 'Taupe', autosomalGene: 'o', sexGene: 'Z(pl)' },
-    { name: 'Amethyst', autosomalGene: 'o', sexGene: 'Z(va)' },
+    { name: 'Amethyst', autosomalGene: 'o', sexGene: 'Z(sv)' },
     { name: 'Rosewood', autosomalGene: 'mc', sexGene: 'Z(pl)' },
     { name: 'Indigo/Hazel', autosomalGene: 'br', sexGene: 'Z(pl)' }
 ];
 
 const hetSexColors = [
-    { name: 'Het EV Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl)', 'Z(ve)'] },
+    { name: 'Het EV-PL:C Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl:c)', 'Z(ev)'] },
+    { name: 'Het EV-PL Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl)', 'Z(ev)'] },
     { name: 'Cameo', geneName: 'Sex-Linked Color', alleles: ['Z(c)', 'Z(pl:c)'] },
     { name: 'US Purple', geneName: 'Sex-Linked Color', alleles: ['Z(pl)', 'Z(pl:c)'] }
 ];
