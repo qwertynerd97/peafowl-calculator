@@ -20,8 +20,8 @@ const colorGenes = [
 const sexLinkedColorAllotypes = [
     { notation: 'Z(c)', name: 'Cameo' },
     { notation: 'Z(pl)', name: 'US Purple' },
-    { notation: 'Z(va)', name: "Sonja's Violeta" },
-    { notation: 'Z(ve)', name: 'European Violet' },
+    { notation: 'Z(sv)', name: "Sonja's Violeta" },
+    { notation: 'Z(ev)', name: 'European Violet' },
     { notation: 'Z(pl:c)', name: 'Peach' },
     { notation: 'Z(f)', name: 'Australian Fawn' }
 ];
@@ -32,7 +32,7 @@ const multiGeneColors = [
     { name: 'Amethyst', genesNeeded: ["Sonja's Violeta", 'Opal'] },
     { name: 'Rosewood', genesNeeded: ['US Purple', 'Mocha'] },
     { name: 'Indigo/Hazel', genesNeeded: ['US Purple', 'Buford Bronze'] },
-    { name: 'Cinnamon', genesNeeded: ['Peach', 'Buford Bronze'] },
+    { name: 'Champagne', genesNeeded: ['Peach', 'Buford Bronze'] },
     { name: 'US Ivory', genesNeeded: ['Cameo', 'Opal'] }
 ];
 
