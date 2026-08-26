@@ -142,7 +142,7 @@ function createGenotypeWidgets(sex, bird) {
     const piedDiv = document.createElement('div');
     piedDiv.className = 'form-group';
     const piedLabel = document.createElement('label');
-    piedLabel.textContent = 'Pied:';
+    piedLabel.textContent = 'Leucistic Mutation:';
     const piedSelect = document.createElement('select');
     piedSelect.id = `${sex.toLowerCase()}-gene-pied`;
 
