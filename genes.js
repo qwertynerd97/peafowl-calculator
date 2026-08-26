@@ -32,7 +32,7 @@ const multiGeneColors = [
     { name: 'Amethyst', genesNeeded: ["Sonja's Violeta", 'Opal'] },
     { name: 'Rosewood', genesNeeded: ['US Purple', 'Mocha'] },
     { name: 'Indigo/Hazel', genesNeeded: ['US Purple', 'Buford Bronze'] },
-    { name: 'Champagne', genesNeeded: ['Peach', 'Buford Bronze'] },
+    { name: 'Champagne/Royal Purple', genesNeeded: ['Peach', 'Buford Bronze'] },
     { name: 'US Ivory', genesNeeded: ['Cameo', 'Opal'] }
 ];
 

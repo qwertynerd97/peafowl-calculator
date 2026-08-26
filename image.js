@@ -58,6 +58,13 @@ function updateImage(sex, bird, container, isChild = false) {
         generateImg(sex, 'Indigo', pattern, piedResult, eyeResult, container);
         generateImg(sex, 'Hazel', pattern, piedResult, eyeResult, secondBird);
         container.parentElement.appendChild(secondBird);
+    } else if (color === 'Champagne/Royal Purple') {
+        let secondBird = container.parentElement.querySelector('.second-bird');
+        if (!secondBird) secondBird = document.createElement('div');
+        secondBird.className = 'second-bird imageWrapper';
+        generateImg(sex, 'Champagne', pattern, piedResult, eyeResult, container);
+        generateImg(sex, 'Royal Purple', pattern, piedResult, eyeResult, secondBird);
+        container.parentElement.appendChild(secondBird);
     } else {
         const secondBird = container.parentElement.querySelector('.second-bird');
         if (secondBird) container.parentElement.removeChild(secondBird);
